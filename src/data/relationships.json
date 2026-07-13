@@ -1,0 +1,70 @@
+[
+  {
+    "type": "marriage",
+    "husband": "andre-cerff",
+    "wife": "louise-fanny-freudenberg",
+    "marriageDate": "27-09-1900",
+    "marriagePlace": "Paris, France"
+  },
+  {
+    "type": "parent-child",
+    "parent": "andre-cerff",
+    "child": "genevieve-cerff"
+  },
+  {
+    "type": "parent-child",
+    "parent": "louise-fanny-freudenberg",
+    "child": "genevieve-cerff"
+  },
+  {
+    "type": "marriage",
+    "husband": "jean-levy",
+    "wife": "genevieve-cerff",
+    "marriageDate": "30-01-1928",
+    "marriagePlace": "Paris, France"
+  },
+  {
+    "type": "parent-child",
+    "parent": "jean-levy",
+    "child": "gerard-levy"
+  },
+  {
+    "type": "parent-child",
+    "parent": "genevieve-cerff",
+    "child": "gerard-levy"
+  },
+  {
+    "type": "marriage",
+    "husband": "gerard-levy",
+    "wife": "catalina-fernandez",
+    "marriageDate": "23-08-1963",
+    "marriagePlace": "Mexico, Mexique"
+  },
+  {
+    "type": "parent-child",
+    "parent": "gerard-levy",
+    "child": "juan-jorge-levy"
+  },
+  {
+    "type": "parent-child",
+    "parent": "catalina-fernandez",
+    "child": "juan-jorge-levy"
+  },
+  {
+    "type": "marriage",
+    "husband": "juan-jorge-levy",
+    "wife": "susana-lozano",
+    "marriageDate": "23-04-1994",
+    "marriagePlace": "Mexico, Mexique"
+  },
+  {
+    "type": "parent-child",
+    "parent": "juan-jorge-levy",
+    "child": "eugenia-levy"
+  },
+  {
+    "type": "parent-child",
+    "parent": "susana-lozano",
+    "child": "eugenia-levy"
+  }
+]

@@ -1,0 +1,1756 @@
+[
+  {
+    "id": "birth_eugenia",
+    "title": "Acte de naissance d'Eugenia Levy",
+    "documentType": "birth_certificate",
+    "subjects": [
+      "eugenia-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "eugenia-levy",
+        "role": "subject"
+      },
+      {
+        "person": "juan-jorge-levy",
+        "role": "father"
+      },
+      {
+        "person": "susana-lozano",
+        "role": "mother"
+      }
+    ],
+    "creationDate": "21-05-1997",
+    "issueDate": "18-11-2025",
+    "authority": null,
+    "country": "Mexique",
+    "language": "fr",
+    "source": "Service Publique",
+    "notes": null,
+    "events": [
+      {
+        "id": "birth_eugenia",
+        "type": "birth",
+        "date": "21-05-1997",
+        "place": "Mexico",
+        "people": [
+          "eugenia-levy"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "online_delivery",
+        "label": "Service Publique",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/birth_eugenia.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "livret_juan",
+    "title": "Livret de famille de Juan Jorge Levy",
+    "documentType": "livret_famille",
+    "subjects": [
+      "juan-jorge-levy",
+      "susana-lozano"
+    ],
+    "referencedPeople": [
+      {
+        "person": "juan-jorge-levy",
+        "role": "husband"
+      },
+      {
+        "person": "susana-lozano",
+        "role": "wife"
+      },
+      {
+        "person": "eugenia-levy",
+        "role": "child"
+      }
+    ],
+    "creationDate": null,
+    "issueDate": null,
+    "authority": null,
+    "country": "France",
+    "language": "fr",
+    "source": "Archives familiales",
+    "notes": null,
+    "events": [
+      {
+        "id": "marriage_juan_susana",
+        "type": "marriage",
+        "people": [
+          "juan-jorge-levy",
+          "susana-lozano"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "scan",
+        "label": "Scan",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/livret_juan.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marriage_juan",
+    "title": "Acte de mariage de Juan Jorge Levy et Susana Lozano",
+    "documentType": "marriage_certificate",
+    "subjects": [
+      "juan-jorge-levy",
+      "susana-lozano"
+    ],
+    "referencedPeople": [
+      {
+        "person": "juan-jorge-levy",
+        "role": "husband"
+      },
+      {
+        "person": "susana-lozano",
+        "role": "wife"
+      }
+    ],
+    "creationDate": null,
+    "issueDate": null,
+    "authority": null,
+    "country": "Mexico",
+    "language": "es",
+    "source": "Original familial",
+    "notes": null,
+    "events": [
+      {
+        "id": "marriage_juan_susana",
+        "type": "marriage",
+        "people": [
+          "juan-jorge-levy",
+          "susana-lozano"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "scan",
+        "label": "Scan",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/marriage_juan.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "carte_consulaire_juan",
+    "title": "Carte d'immatriculation consulaire de Juan Jorge Levy",
+    "documentType": "consular_registration",
+    "subjects": [
+      "juan-jorge-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "juan-jorge-levy",
+        "role": "subject"
+      }
+    ],
+    "creationDate": "30-04-1967",
+    "issueDate": null,
+    "authority": "Consulat Général de France à Mexico",
+    "country": "France",
+    "language": "fr",
+    "source": "Original familial",
+    "notes": null,
+    "events": [
+      {
+        "id": "consular_registration_juan",
+        "type": "consular_registration",
+        "people": [
+          "juan-jorge-levy"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "front",
+        "label": "Recto",
+        "assets": [
+          {
+            "type": "image",
+            "path": "/documents/carte_consulaire_juan_front.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "service_national_juan",
+    "title": "Attestation de dispense du service national",
+    "documentType": "military_record",
+    "subjects": [
+      "juan-jorge-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "juan-jorge-levy",
+        "role": "subject"
+      }
+    ],
+    "creationDate": "26-06-1997",
+    "issueDate": "26-06-1997",
+    "authority": "Direction du Service National",
+    "country": "France",
+    "language": "fr",
+    "source": "Original familial",
+    "notes": null,
+    "events": [
+      {
+        "id": "military_exemption_juan",
+        "type": "military",
+        "date": "26-06-1997",
+        "people": [
+          "juan-jorge-levy"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "scan",
+        "label": "Scan",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/service_national_juan.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "birth_juan",
+    "title": "Acte de naissance de Juan Jorge Levy",
+    "documentType": "birth_certificate",
+    "subjects": [
+      "juan-jorge-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "juan-jorge-levy",
+        "role": "subject"
+      },
+      {
+        "person": "gerard-levy",
+        "role": "father"
+      },
+      {
+        "person": "catalina-fernandez",
+        "role": "mother"
+      }
+    ],
+    "creationDate": "30-04-1967",
+    "issueDate": null,
+    "authority": null,
+    "country": "Mexico",
+    "language": "es",
+    "source": "Original familial",
+    "notes": null,
+    "events": [
+      {
+        "id": "birth_juan",
+        "type": "birth",
+        "date": "30-04-1967",
+        "place": "Mexico",
+        "people": [
+          "juan-jorge-levy"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "scan",
+        "label": "Scan",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/birth_juan.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "livret_gerard_v1",
+    "title": "Livret de famille de Gérard Levy",
+    "documentType": "livret_famille",
+    "subjects": [
+      "gerard-levy",
+      "catalina-fernandez"
+    ],
+    "referencedPeople": [
+      {
+        "person": "gerard-levy",
+        "role": "husband"
+      },
+      {
+        "person": "catalina-fernandez",
+        "role": "wife"
+      },
+      {
+        "person": "juan-jorge-levy",
+        "role": "child"
+      }
+    ],
+    "creationDate": null,
+    "issueDate": null,
+    "authority": null,
+    "country": "France",
+    "language": "fr",
+    "source": "Original familial",
+    "notes": "Version ancienne.",
+    "events": [],
+    "versions": [
+      {
+        "id": "scan",
+        "label": "Version ancienne",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/livret_gerard_v1.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marriage_gerard",
+    "title": "Acte de mariage de Gérard Levy",
+    "documentType": "marriage_certificate",
+    "subjects": [
+      "gerard-levy",
+      "catalina-fernandez"
+    ],
+    "referencedPeople": [
+      {
+        "person": "gerard-levy",
+        "role": "husband"
+      },
+      {
+        "person": "catalina-fernandez",
+        "role": "wife"
+      }
+    ],
+    "creationDate": null,
+    "issueDate": null,
+    "authority": null,
+    "country": "France",
+    "language": "fr",
+    "source": "Original familial",
+    "notes": null,
+    "events": [
+      {
+        "id": "marriage_gerard_talina",
+        "type": "marriage",
+        "people": [
+          "gerard-levy",
+          "catalina-fernandez"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "scan",
+        "label": "Scan",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/marriage_gerard.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "birth_genevieve",
+    "title": "Acte de naissance de Geneviève Cerff",
+    "documentType": "birth_certificate",
+    "subjects": [
+      "genevieve-cerff"
+    ],
+    "referencedPeople": [
+      {
+        "person": "genevieve-cerff",
+        "role": "subject"
+      },
+      {
+        "person": "andre-cerff",
+        "role": "father"
+      },
+      {
+        "person": "louise-fanny-freudenberg",
+        "role": "mother"
+      }
+    ],
+    "creationDate": null,
+    "issueDate": null,
+    "authority": null,
+    "country": "France",
+    "language": "fr",
+    "source": "Original familial",
+    "notes": null,
+    "events": [
+      {
+        "id": "birth_genevieve",
+        "type": "birth",
+        "people": [
+          "genevieve-cerff"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "scan",
+        "label": "Scan",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/birth_genevieve.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "livret_andre_complete",
+    "title": "Livret de famille d'André Cerff",
+    "documentType": "livret_famille",
+    "subjects": [
+      "andre-cerff",
+      "louise-fanny-freudenberg"
+    ],
+    "referencedPeople": [
+      {
+        "person": "andre-cerff",
+        "role": "husband"
+      },
+      {
+        "person": "louise-fanny-freudenberg",
+        "role": "wife"
+      },
+      {
+        "person": "genevieve-cerff",
+        "role": "child"
+      }
+    ],
+    "creationDate": null,
+    "issueDate": null,
+    "authority": null,
+    "country": "France",
+    "language": "fr",
+    "source": "Original familial",
+    "notes": "Version complète avec toutes les pages.",
+    "events": [],
+    "versions": [
+      {
+        "id": "complete",
+        "label": "Version complète",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/livret_andre_complete.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "birth_ferdinand_levy",
+    "title": "Acte de naissance de Ferdinand Levy",
+    "documentType": "birth_certificate",
+    "subjects": [
+      "ferdinand-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "ferdinand-levy",
+        "role": "subject"
+      },
+      {
+        "person": "jean-levy",
+        "role": "father"
+      },
+      {
+        "person": "laure-sophie-rueff",
+        "role": "mother"
+      }
+    ],
+    "creationDate": "25-03-1899",
+    "issueDate": null,
+    "authority": "État civil",
+    "country": "Brésil",
+    "language": "pt",
+    "source": "Archives familiales",
+    "notes": "Copie ancienne de l'acte de naissance.",
+    "events": [
+      {
+        "id": "birth_ferdinand_levy",
+        "type": "birth",
+        "date": "25-03-1899",
+        "place": "São Paulo, Brésil",
+        "people": [
+          "ferdinand-levy"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "scan",
+        "label": "Scan",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/birth_ferdinand_levy.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "birth_jean_levy",
+    "title": "Certidão de nascimento de Jean Levy",
+    "documentType": "birth_certificate",
+    "subjects": [
+      "jean-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "jean-levy",
+        "role": "subject"
+      },
+      {
+        "person": "ferdinand-levy",
+        "role": "father"
+      },
+      {
+        "person": "laure-sophie-rueff",
+        "role": "mother"
+      },
+      {
+        "person": "david-levy",
+        "role": "grandfather"
+      },
+      {
+        "person": "ernestina-levy",
+        "role": "grandmother"
+      },
+      {
+        "person": "gaspar-rueff",
+        "role": "grandfather"
+      },
+      {
+        "person": "paulina-rueff",
+        "role": "grandmother"
+      }
+    ],
+    "creationDate": "25-03-1899",
+    "issueDate": "02-05-1941",
+    "authority": "Cartório do Registro Civil da Primeira Zona – Sé",
+    "country": "Brésil",
+    "language": "pt",
+    "source": "Archives familiales",
+    "notes": "Certidão de nascimento émise à São Paulo en 1941 à partir du registre original de 1899.",
+    "events": [
+      {
+        "id": "birth_jean_levy",
+        "type": "birth",
+        "date": "25-03-1899",
+        "place": "São Paulo, Brésil",
+        "people": [
+          "jean-levy"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "certidao_1941",
+        "label": "Certidão",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/birth_jean_levy_brazil.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passport_jean_levy",
+    "title": "Passeport français de Jean Levy",
+    "documentType": "passport",
+    "subjects": [
+      "jean-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "jean-levy",
+        "role": "holder"
+      }
+    ],
+    "creationDate": null,
+    "issueDate": null,
+    "authority": "République Française",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives familiales",
+    "notes": "Passeport ancien. Une partie des informations est illisible sur le scan.",
+    "events": [],
+    "versions": [
+      {
+        "id": "scan",
+        "label": "Scan",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/passport_jean_levy.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mobilization_record_jean_levy",
+    "title": "Fascicule de mobilisation de Jean Levy",
+    "documentType": "military_record",
+    "subjects": [
+      "jean-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "jean-levy",
+        "role": "subject"
+      }
+    ],
+    "creationDate": "1919",
+    "issueDate": null,
+    "authority": "Armée Française",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives familiales",
+    "notes": "Fascicule de mobilisation. Classe 1919. Bureau de recrutement de Paris.",
+    "events": [
+      {
+        "id": "mobilization_jean_levy",
+        "type": "military",
+        "date": "1919",
+        "people": [
+          "jean-levy"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "scan",
+        "label": "Scan",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/recensement_jean_levy.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "birth_genevieve_cerff",
+    "title": "Extrait d'acte de naissance de Geneviève Cerff",
+    "documentType": "birth_certificate",
+    "subjects": [
+      "genevieve-cerff"
+    ],
+    "referencedPeople": [
+      {
+        "person": "genevieve-cerff",
+        "role": "subject"
+      },
+      {
+        "person": "andre-cerff",
+        "role": "father"
+      },
+      {
+        "person": "louise-fanny-freudenberg",
+        "role": "mother"
+      }
+    ],
+    "creationDate": "15-07-1907",
+    "issueDate": "31-08-1926",
+    "authority": "Préfecture du Département de la Seine",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives familiales",
+    "notes": "Extrait conforme de l'acte de naissance.",
+    "events": [
+      {
+        "id": "birth_genevieve_cerff",
+        "type": "birth",
+        "date": "15-07-1907",
+        "place": "Paris",
+        "people": [
+          "genevieve-cerff"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "extract",
+        "label": "Extrait",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/birth_genevieve_cerff.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "service_national_juan_jorge",
+    "title": "Attestation de dispense des obligations d'activité du service national",
+    "documentType": "military_record",
+    "subjects": [
+      "juan-jorge-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "juan-jorge-levy",
+        "role": "subject"
+      }
+    ],
+    "creationDate": "26-06-1997",
+    "issueDate": "26-06-1997",
+    "authority": "Direction du Service National – Bureau de Perpignan",
+    "country": "France",
+    "language": "fr",
+    "source": "Original familial",
+    "notes": "Dispense accordée en vertu de l'article L38 a du Code du Service National. Cachet d'arrivée du Consulat Général de France à Mexico du 24 juillet 1997.",
+    "events": [
+      {
+        "id": "service_national_juan_jorge",
+        "type": "military_exemption",
+        "date": "26-06-1997",
+        "place": "Perpignan",
+        "people": [
+          "juan-jorge-levy"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "original",
+        "label": "Original",
+        "assets": [
+          {
+            "type": "image",
+            "path": "/documents/service_national_juan_jorge.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "birth_andre_cerff",
+    "title": "Acte de naissance d'André Cerff",
+    "documentType": "birth_certificate",
+    "subjects": [
+      "andre-cerff"
+    ],
+    "referencedPeople": [
+      {
+        "person": "andre-cerff",
+        "role": "subject"
+      },
+      {
+        "person": "unknown-father-cerff",
+        "role": "father"
+      },
+      {
+        "person": "unknown-mother-cerff",
+        "role": "mother"
+      }
+    ],
+    "creationDate": "20-07-1875",
+    "issueDate": null,
+    "authority": "État civil de Paris",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives de Paris",
+    "notes": "Acte de naissance consulté via les Archives de Paris. Les noms des parents devront être retranscrits plus précisément depuis l'acte.",
+    "events": [
+      {
+        "id": "birth_andre_cerff",
+        "type": "birth",
+        "date": "20-07-1875",
+        "place": "Paris",
+        "people": [
+          "andre-cerff"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "archives_scan",
+        "label": "Archives de Paris",
+        "assets": [
+          {
+            "type": "image",
+            "path": "/documents/birth_andre_cerff.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "death_andre_cerff",
+    "title": "Acte de décès d'André Cerff",
+    "documentType": "death_certificate",
+    "subjects": [
+      "andre-cerff"
+    ],
+    "referencedPeople": [
+      {
+        "person": "andre-cerff",
+        "role": "deceased"
+      },
+      {
+        "person": "louise-fanny-freudenberg",
+        "role": "spouse"
+      }
+    ],
+    "creationDate": "21-02-1924",
+    "issueDate": null,
+    "authority": "État civil de Paris",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives de Paris",
+    "notes": "Décès enregistré à Paris. Mentionné ultérieurement dans le livret de famille.",
+    "events": [
+      {
+        "id": "death_andre_cerff",
+        "type": "death",
+        "date": "21-02-1924",
+        "place": "Paris",
+        "people": [
+          "andre-cerff"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "archives_scan",
+        "label": "Archives de Paris",
+        "assets": [
+          {
+            "type": "image",
+            "path": "/documents/death_andre_cerff.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "birth_louise_fanny_freudenberg",
+    "title": "Acte de naissance de Louise Fanny Freudenberg",
+    "documentType": "birth_certificate",
+    "subjects": [
+      "louise-fanny-freudenberg"
+    ],
+    "referencedPeople": [
+      {
+        "person": "louise-fanny-freudenberg",
+        "role": "subject"
+      },
+      {
+        "person": "simon-freudenberg",
+        "role": "father"
+      },
+      {
+        "person": "louise-bloch",
+        "role": "mother"
+      }
+    ],
+    "creationDate": "03-01-1880",
+    "issueDate": null,
+    "authority": "État civil de Paris",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives de Paris",
+    "notes": "Acte original de naissance. Les noms des parents apparaissent également dans l'acte de mariage.",
+    "events": [
+      {
+        "id": "birth_louise_fanny_freudenberg",
+        "type": "birth",
+        "date": "03-01-1880",
+        "place": "Paris",
+        "people": [
+          "louise-fanny-freudenberg"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "archives_scan",
+        "label": "Archives de Paris",
+        "assets": [
+          {
+            "type": "image",
+            "path": "/documents/birth_louise_fanny_freudenberg.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marriage_andre_cerff_louise_fanny_freudenberg",
+    "title": "Acte de mariage d'André Cerff et Louise Fanny Freudenberg",
+    "documentType": "marriage_certificate",
+    "subjects": [
+      "andre-cerff",
+      "louise-fanny-freudenberg"
+    ],
+    "referencedPeople": [
+      {
+        "person": "andre-cerff",
+        "role": "husband"
+      },
+      {
+        "person": "louise-fanny-freudenberg",
+        "role": "wife"
+      },
+      {
+        "person": "simon-freudenberg",
+        "role": "father_of_bride"
+      },
+      {
+        "person": "louise-bloch",
+        "role": "mother_of_bride"
+      }
+    ],
+    "creationDate": "28-09-1901",
+    "issueDate": null,
+    "authority": "État civil de Paris",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives de Paris",
+    "notes": "Acte manuscrit. Les publications de mariage ainsi que les témoins figurent dans l'acte.",
+    "events": [
+      {
+        "id": "marriage_andre_cerff_louise",
+        "type": "marriage",
+        "date": "28-09-1901",
+        "place": "Paris",
+        "people": [
+          "andre-cerff",
+          "louise-fanny-freudenberg"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "archives_scan",
+        "label": "Archives de Paris",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/marriage_andre_cerff_louise.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "livret_andre_cerff_louise_fanny_freudenberg",
+    "title": "Livret de famille d'André Cerff et Louise Fanny Freudenberg",
+    "documentType": "livret_famille",
+    "subjects": [
+      "andre-cerff",
+      "louise-fanny-freudenberg"
+    ],
+    "referencedPeople": [
+      {
+        "person": "andre-cerff",
+        "role": "husband"
+      },
+      {
+        "person": "louise-fanny-freudenberg",
+        "role": "wife"
+      },
+      {
+        "person": "rose-simone-cerff",
+        "role": "child"
+      },
+      {
+        "person": "denise-eugenie-cerff",
+        "role": "child"
+      },
+      {
+        "person": "genevieve-cerff",
+        "role": "child"
+      }
+    ],
+    "creationDate": "27-09-1901",
+    "issueDate": "27-09-1901",
+    "authority": "Ville de Paris",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives familiales",
+    "notes": "Livret de famille original. Contient le mariage, les naissances des enfants et la mention du décès d'André Cerff en 1924. Deux versions physiques sont conservées : un original et une photocopie.",
+    "events": [
+      {
+        "id": "marriage_andre_cerff_louise_livret",
+        "type": "marriage",
+        "date": "27-09-1901",
+        "people": [
+          "andre-cerff",
+          "louise-fanny-freudenberg"
+        ]
+      },
+      {
+        "id": "birth_rose_simone_cerff",
+        "type": "birth",
+        "date": "20-07-1902",
+        "people": [
+          "rose-simone-cerff"
+        ]
+      },
+      {
+        "id": "birth_denise_eugenie_cerff",
+        "type": "birth",
+        "date": "04-08-1905",
+        "people": [
+          "denise-eugenie-cerff"
+        ]
+      },
+      {
+        "id": "birth_genevieve_cerff_livret",
+        "type": "birth",
+        "date": "15-07-1907",
+        "people": [
+          "genevieve-cerff"
+        ]
+      },
+      {
+        "id": "death_andre_cerff_livret",
+        "type": "death",
+        "date": "21-02-1924",
+        "people": [
+          "andre-cerff"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "original",
+        "label": "Livret original",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/livret_andre_cerff_original.pdf"
+          }
+        ]
+      },
+      {
+        "id": "photocopy",
+        "label": "Photocopie",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/livret_andre_cerff_photocopy.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marriage_jean_levy_genevieve_cerff",
+    "title": "Acte de mariage de Jean Levy et Geneviève Cerff",
+    "documentType": "marriage_certificate",
+    "subjects": [
+      "jean-levy",
+      "genevieve-cerff"
+    ],
+    "referencedPeople": [
+      {
+        "person": "jean-levy",
+        "role": "husband"
+      },
+      {
+        "person": "genevieve-cerff",
+        "role": "wife"
+      },
+      {
+        "person": "ferdinand-levy",
+        "role": "father_of_husband"
+      },
+      {
+        "person": "laure-sophie-rueff",
+        "role": "mother_of_husband"
+      },
+      {
+        "person": "andre-cerff",
+        "role": "father_of_wife"
+      },
+      {
+        "person": "louise-fanny-freudenberg",
+        "role": "mother_of_wife"
+      }
+    ],
+    "creationDate": "03-06-1928",
+    "issueDate": null,
+    "authority": "État civil de Paris",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives familiales",
+    "notes": "L'acte original de mariage n'est pas encore présent dans les archives numériques du projet. Le livret de famille confirme le mariage.",
+    "events": [
+      {
+        "id": "marriage_jean_genevieve",
+        "type": "marriage",
+        "date": "03-06-1928",
+        "place": "Paris",
+        "people": [
+          "jean-levy",
+          "genevieve-cerff"
+        ]
+      }
+    ],
+    "versions": []
+  },
+  {
+    "id": "livret_jean_levy_genevieve_cerff",
+    "title": "Livret de famille de Jean Levy et Geneviève Cerff",
+    "documentType": "livret_famille",
+    "subjects": [
+      "jean-levy",
+      "genevieve-cerff"
+    ],
+    "referencedPeople": [
+      {
+        "person": "jean-levy",
+        "role": "husband"
+      },
+      {
+        "person": "genevieve-cerff",
+        "role": "wife"
+      },
+      {
+        "person": "gerard-levy",
+        "role": "child"
+      },
+      {
+        "person": "claude-andre-levy",
+        "role": "child"
+      }
+    ],
+    "creationDate": "03-06-1928",
+    "issueDate": "03-06-1928",
+    "authority": "Ville de Paris",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives familiales",
+    "notes": "Livret de famille original. Mentionne le décès de Jean Levy le 1 juin 1958 à Mexico (acte n°108) ainsi que les naissances des enfants Claude André Levy et Gérard Levy.",
+    "events": [
+      {
+        "id": "livret_marriage_jean_genevieve",
+        "type": "marriage",
+        "date": "03-06-1928",
+        "people": [
+          "jean-levy",
+          "genevieve-cerff"
+        ]
+      },
+      {
+        "id": "birth_claude_andre_levy",
+        "type": "birth",
+        "date": "05-04-1932",
+        "place": "Mexico",
+        "people": [
+          "claude-andre-levy"
+        ]
+      },
+      {
+        "id": "birth_gerard_levy",
+        "type": "birth",
+        "date": "26-06-1933",
+        "place": "Mexico",
+        "people": [
+          "gerard-levy"
+        ]
+      },
+      {
+        "id": "death_jean_levy",
+        "type": "death",
+        "date": "01-06-1958",
+        "place": "Mexico",
+        "people": [
+          "jean-levy"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "original_scan",
+        "label": "Original",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/livret_jean_genevieve.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "death_jean_levy",
+    "title": "Mention de décès de Jean Levy",
+    "documentType": "death_record_reference",
+    "subjects": [
+      "jean-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "jean-levy",
+        "role": "deceased"
+      }
+    ],
+    "creationDate": "01-06-1958",
+    "issueDate": null,
+    "authority": "Consulat de France au Mexique",
+    "country": "Mexique",
+    "language": "fr",
+    "source": "Livret de famille",
+    "notes": "Mention marginale dans le livret : Acte n°108. Ce document n'est pas encore présent séparément dans les archives.",
+    "events": [
+      {
+        "id": "death_reference_jean",
+        "type": "death",
+        "date": "01-06-1958",
+        "place": "Mexico",
+        "people": [
+          "jean-levy"
+        ]
+      }
+    ],
+    "versions": []
+  },
+  {
+    "id": "birth_claude_andre_levy_reference",
+    "title": "Mention de naissance de Claude André Levy",
+    "documentType": "birth_record_reference",
+    "subjects": [
+      "claude-andre-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "claude-andre-levy",
+        "role": "subject"
+      },
+      {
+        "person": "jean-levy",
+        "role": "father"
+      },
+      {
+        "person": "genevieve-cerff",
+        "role": "mother"
+      }
+    ],
+    "creationDate": "05-04-1932",
+    "issueDate": null,
+    "authority": "Consulat de France au Mexique",
+    "country": "Mexique",
+    "language": "fr",
+    "source": "Livret de famille",
+    "notes": "Référence issue du livret de famille. L'acte de naissance n'a pas encore été ajouté aux archives.",
+    "events": [
+      {
+        "id": "birth_claude_reference",
+        "type": "birth",
+        "date": "05-04-1932",
+        "place": "Mexico",
+        "people": [
+          "claude-andre-levy"
+        ]
+      }
+    ],
+    "versions": []
+  },
+  {
+    "id": "birth_gerard_levy_reference",
+    "title": "Mention de naissance de Gérard Levy",
+    "documentType": "birth_record_reference",
+    "subjects": [
+      "gerard-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "gerard-levy",
+        "role": "subject"
+      },
+      {
+        "person": "jean-levy",
+        "role": "father"
+      },
+      {
+        "person": "genevieve-cerff",
+        "role": "mother"
+      }
+    ],
+    "creationDate": "26-06-1933",
+    "issueDate": null,
+    "authority": "Consulat de France au Mexique",
+    "country": "Mexique",
+    "language": "fr",
+    "source": "Livret de famille",
+    "notes": "Cette référence sera remplacée lorsque l'acte de naissance complet de Gérard Levy sera ajouté.",
+    "events": [
+      {
+        "id": "birth_gerard_reference",
+        "type": "birth",
+        "date": "26-06-1933",
+        "place": "Mexico",
+        "people": [
+          "gerard-levy"
+        ]
+      }
+    ],
+    "versions": []
+  },
+  {
+    "id": "marriage_gerard_levy_catalina_fernandez",
+    "title": "Acte de mariage de Gérard Levy et Catalina Fernández",
+    "documentType": "marriage_certificate",
+    "subjects": [
+      "gerard-levy",
+      "catalina-fernandez"
+    ],
+    "referencedPeople": [
+      {
+        "person": "gerard-levy",
+        "role": "husband"
+      },
+      {
+        "person": "catalina-fernandez",
+        "role": "wife"
+      },
+      {
+        "person": "jean-levy",
+        "role": "father_of_husband"
+      },
+      {
+        "person": "genevieve-cerff",
+        "role": "mother_of_husband"
+      },
+      {
+        "person": "jorge-fernandez",
+        "role": "father_of_wife"
+      },
+      {
+        "person": "catalina-vega",
+        "role": "mother_of_wife"
+      }
+    ],
+    "creationDate": "23-08-1963",
+    "issueDate": "18-11-2025",
+    "authority": "Service Central d'État Civil",
+    "country": "France",
+    "language": "fr",
+    "source": "Service central d'état civil",
+    "notes": "Transcription de l'acte de mariage célébré à Mexico (District Fédéral). Les époux sont domiciliés à Mexico D.F. Gérard Levy est fonctionnaire bancaire. Catalina Fernández est étudiante infirmière.",
+    "events": [
+      {
+        "id": "marriage_gerard_catalina",
+        "type": "marriage",
+        "date": "23-08-1963",
+        "place": "Mexico, District Fédéral, Mexique",
+        "people": [
+          "gerard-levy",
+          "catalina-fernandez"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "service_central",
+        "label": "Copie intégrale (2025)",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/marriage_gerard_talina.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "livret_gerard_levy_catalina_fernandez",
+    "title": "Livret de famille de Gérard Levy et Catalina Fernández",
+    "documentType": "livret_famille",
+    "subjects": [
+      "gerard-levy",
+      "catalina-fernandez"
+    ],
+    "referencedPeople": [
+      {
+        "person": "gerard-levy",
+        "role": "husband"
+      },
+      {
+        "person": "catalina-fernandez",
+        "role": "wife"
+      },
+      {
+        "person": "juan-jorge-levy",
+        "role": "child"
+      }
+    ],
+    "creationDate": "23-08-1963",
+    "issueDate": "22-01-1964",
+    "authority": "Consulat Général de France à Mexico",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives familiales",
+    "notes": "Un seul livret de famille possédant deux versions physiques : un ancien livret et un livret mis à jour. Le livret mis à jour a été délivré le 29 avril 2005 et comporte la transcription effectuée le 22 janvier 1964.",
+    "events": [
+      {
+        "id": "livret_marriage_gerard_catalina",
+        "type": "marriage",
+        "date": "23-08-1963",
+        "place": "Mexico, District Fédéral",
+        "people": [
+          "gerard-levy",
+          "catalina-fernandez"
+        ]
+      },
+      {
+        "id": "birth_juan_jorge_livret",
+        "type": "birth",
+        "date": "30-04-1967",
+        "place": "Mexico",
+        "people": [
+          "juan-jorge-levy"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "original_1964",
+        "label": "Livret original",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/livret_gerard_talina.pdf"
+          }
+        ]
+      },
+      {
+        "id": "updated_2005",
+        "label": "Livret mis à jour",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/livret_gerard_talina_updated.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "service_national_juan_jorge_levy",
+    "title": "Attestation de dispense des obligations du service national de Juan Jorge Levy",
+    "documentType": "military_record",
+    "subjects": [
+      "juan-jorge-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "juan-jorge-levy",
+        "role": "subject"
+      }
+    ],
+    "creationDate": "26-06-1997",
+    "issueDate": "26-06-1997",
+    "authority": "Direction du Service National",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives familiales",
+    "notes": "Attestation de dispense prévue par l'article L38(a) du Code du Service National. Cachet du Consulat Général de France à Mexico.",
+    "events": [
+      {
+        "id": "service_national_juan_jorge",
+        "type": "military_exemption",
+        "date": "26-06-1997",
+        "place": "Perpignan",
+        "people": [
+          "juan-jorge-levy"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "original",
+        "label": "Original",
+        "assets": [
+          {
+            "type": "image",
+            "path": "/documents/service_national_juan_jorge.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "livret_juan_jorge_levy_susana_lozano",
+    "title": "Livret de famille de Juan Jorge Levy et Susana Lozano",
+    "documentType": "livret_famille",
+    "subjects": [
+      "juan-jorge-levy",
+      "susana-lozano"
+    ],
+    "referencedPeople": [
+      {
+        "person": "juan-jorge-levy",
+        "role": "husband"
+      },
+      {
+        "person": "susana-lozano",
+        "role": "wife"
+      },
+      {
+        "person": "eugenia-levy",
+        "role": "child"
+      }
+    ],
+    "creationDate": "29-06-1996",
+    "issueDate": "29-06-1996",
+    "authority": "Consulat Général de France à Mexico",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives familiales",
+    "notes": "Livret de famille original comportant la transcription du mariage ainsi que la naissance d'Eugenia Levy.",
+    "events": [
+      {
+        "id": "livret_marriage_juan_susana",
+        "type": "marriage",
+        "date": "29-06-1996",
+        "people": [
+          "juan-jorge-levy",
+          "susana-lozano"
+        ]
+      },
+      {
+        "id": "livret_birth_eugenia",
+        "type": "birth",
+        "date": "21-05-1997",
+        "place": "Mexico",
+        "people": [
+          "eugenia-levy"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "original",
+        "label": "Original",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/livret_juan_jorge_susana.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marriage_ferdinand_levy_laure_sophie_rueff",
+    "title": "Acte de mariage de Ferdinand Levy et Laure Sophie Rueff",
+    "documentType": "marriage_certificate",
+    "subjects": [
+      "ferdinand-levy",
+      "laure-sophie-rueff"
+    ],
+    "referencedPeople": [
+      {
+        "person": "ferdinand-levy",
+        "role": "husband"
+      },
+      {
+        "person": "laure-sophie-rueff",
+        "role": "wife"
+      },
+      {
+        "person": "jean-levy-sr",
+        "role": "father_of_husband"
+      },
+      {
+        "person": "berthe-levy",
+        "role": "mother_of_husband"
+      },
+      {
+        "person": "gaspard-rueff",
+        "role": "father_of_wife"
+      },
+      {
+        "person": "pauline-rueff",
+        "role": "mother_of_wife"
+      }
+    ],
+    "creationDate": "17-03-1921",
+    "issueDate": "18-11-2025",
+    "authority": "Service Central d'État Civil",
+    "country": "France",
+    "language": "fr",
+    "source": "Service public",
+    "notes": "Copie intégrale de la transcription du mariage célébré à São Paulo, Brésil.",
+    "events": [
+      {
+        "id": "marriage_ferdinand_laure",
+        "type": "marriage",
+        "date": "17-03-1921",
+        "place": "São Paulo, Brésil",
+        "people": [
+          "ferdinand-levy",
+          "laure-sophie-rueff"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "copy_2025",
+        "label": "Copie intégrale",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/marriage_ferdinand_laure.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "migration_card_laure_sophie_rueff",
+    "title": "Fiche de migration de Laure Sophie Rueff",
+    "documentType": "immigration_record",
+    "subjects": [
+      "laure-sophie-rueff"
+    ],
+    "referencedPeople": [
+      {
+        "person": "laure-sophie-rueff",
+        "role": "subject"
+      }
+    ],
+    "creationDate": "23-07-1896",
+    "issueDate": null,
+    "authority": "Archives de Paris",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives de Paris",
+    "notes": "Fiche issue des Archives de Paris utilisée pour retracer le parcours administratif de Laure Sophie Rueff.",
+    "events": [
+      {
+        "id": "migration_laure_rueff",
+        "type": "immigration",
+        "people": [
+          "laure-sophie-rueff"
+        ]
+      }
+    ],
+    "versions": [
+      {
+        "id": "archives_scan",
+        "label": "Archives de Paris",
+        "assets": [
+          {
+            "type": "image",
+            "path": "/documents/migration_laure_rueff.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "identity_card_eugenia_levy",
+    "title": "Carte nationale d'identité d'Eugenia Levy",
+    "documentType": "identity_card",
+    "subjects": [
+      "eugenia-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "eugenia-levy",
+        "role": "holder"
+      }
+    ],
+    "creationDate": null,
+    "issueDate": null,
+    "authority": "République Française",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives familiales",
+    "notes": "Carte nationale d'identité française.",
+    "events": [],
+    "versions": [
+      {
+        "id": "recto",
+        "label": "Recto",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/cni_eugenia.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passport_eugenia_levy",
+    "title": "Passeport français d'Eugenia Levy",
+    "documentType": "passport",
+    "subjects": [
+      "eugenia-levy"
+    ],
+    "referencedPeople": [
+      {
+        "person": "eugenia-levy",
+        "role": "holder"
+      }
+    ],
+    "creationDate": null,
+    "issueDate": null,
+    "authority": "République Française",
+    "country": "France",
+    "language": "fr",
+    "source": "Archives familiales",
+    "notes": "Passeport français biométrique.",
+    "events": [],
+    "versions": [
+      {
+        "id": "scan",
+        "label": "Scan",
+        "assets": [
+          {
+            "type": "pdf",
+            "path": "/documents/passport_eugenia.pdf"
+          }
+        ]
+      }
+    ]
+  }
+]
