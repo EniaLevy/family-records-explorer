@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
 
@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 
 export default function App() {
     return (
-        <BrowserRouter basename="/family-records-explorer">
+        <HashRouter>
             <Routes>
                 <Route element={<Layout />}>
 
@@ -59,6 +59,6 @@ export default function App() {
 
                 </Route>
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
