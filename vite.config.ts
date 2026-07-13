@@ -2,9 +2,15 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
 
-    base: "/family-records-explorer/",
+    base:
+
+        command === "serve"
+
+            ? "/"
+
+            : "/family-records-explorer/",
 
     plugins: [
 
@@ -14,4 +20,4 @@ export default defineConfig({
 
     ],
 
-});
+}));
