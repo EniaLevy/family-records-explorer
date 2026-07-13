@@ -18,6 +18,28 @@
 
     <title>Archives familiales Levy–Cerff</title>
 
+    <script>
+
+        (function () {
+
+            const redirect = sessionStorage.getItem("redirect");
+
+            if (redirect) {
+
+                sessionStorage.removeItem("redirect");
+
+                history.replaceState(
+                    null,
+                    null,
+                    redirect
+                );
+
+            }
+
+        })();
+
+    </script>
+
 </head>
 
 <body>

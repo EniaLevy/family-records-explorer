@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 
 export default function App() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/family-records-explorer">
             <Routes>
                 <Route element={<Layout />}>
 
