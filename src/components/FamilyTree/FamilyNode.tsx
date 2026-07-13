@@ -5,6 +5,8 @@ import {
     FaUser,
 } from "react-icons/fa";
 
+import { getAssetUrl } from "../../utils/assets";
+
 import {
     getDocumentsForPerson,
     getPerson,
@@ -158,7 +160,7 @@ export default function FamilyNode({
 
                                 <img
 
-                                    src={person.portrait}
+                                    src={getAssetUrl(person.portrait)}
 
                                     alt={person.fullName}
 

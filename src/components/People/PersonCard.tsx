@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 import type { Person } from "../../types/Person";
 
+import { getAssetUrl } from "../../utils/assets";
+
 import Portrait from "../Common/Portrait";
 
 import {
@@ -40,7 +42,7 @@ export default function PersonCard({
             <div className="mb-6">
 
                 <Portrait
-                    src={person.portrait}
+                    src={getAssetUrl(person.portrait)}
                     alt={person.fullName}
                     size="md"
                 />

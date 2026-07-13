@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 import type { Person } from "../../types/Person";
 
+import { getAssetUrl } from "../../utils/assets";
+
 import Portrait from "./Portrait";
 
 interface PersonLinkProps {
@@ -28,7 +30,7 @@ export default function PersonLink({
         >
 
             <Portrait
-                src={person.portrait}
+                src={getAssetUrl(person.portrait)}
                 alt={person.fullName}
                 size="sm"
             />
