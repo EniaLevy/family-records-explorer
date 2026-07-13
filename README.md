@@ -1,32 +1,79 @@
-# React + TypeScript + Vite
+# Archives familiales Levy–Cerff
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Collection documentaire numérique destinée à l'organisation, à la consultation et à la préservation des archives de la famille Levy–Cerff.
 
-Currently, two official plugins are available:
+Cette application a été développée afin de centraliser des documents historiques provenant de plusieurs générations de la famille, notamment dans le cadre de recherches relatives à la nationalité française.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Objectifs
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Les Archives familiales Levy–Cerff ont pour vocation de :
 
-## Expanding the Oxlint configuration
+- préserver les documents familiaux sous une forme numérique ;
+- faciliter la consultation des actes et pièces d'archives ;
+- visualiser les liens familiaux établis par les documents ;
+- offrir un accès centralisé aux archives numérisées.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+Cette application n'est **pas** un logiciel de généalogie. Les informations présentées sont exclusivement fondées sur les documents d'archives disponibles.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+---
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Fonctionnalités
+
+- Consultation des personnes présentes dans les archives
+- Consultation des documents numérisés
+- Arbre familial construit à partir des relations documentées
+- Recherche parmi les personnes et les documents
+- Prévisualisation des documents PDF
+- Organisation des archives par type de document
+
+---
+
+## Types de documents
+
+Les archives comprennent notamment :
+
+- Actes de naissance
+- Actes de mariage
+- Actes de décès
+- Livrets de famille
+- Cartes d'immatriculation consulaire
+- Passeports
+- Certificats de nationalité
+- Correspondance administrative
+- Autres documents historiques
+
+---
+
+## Architecture
+
+L'application est entièrement fondée sur trois ensembles de données :
+
+- `people.json`
+- `relationships.json`
+- `documents.json`
+
+Ces fichiers constituent la source unique des informations affichées.
+
+Les vues de l'application sont générées automatiquement à partir de ces données.
+
+---
+
+## Technologies utilisées
+
+- React
+- TypeScript
+- Vite
+- React Router
+- React Flow
+
+---
+
+## Licence
+
+Cette collection documentaire est publiée à des fins de consultation et de recherche familiale.
+
+Les documents reproduits peuvent être soumis aux droits applicables de leurs administrations d'origine ou de leurs détenteurs.
+
+© Eugenia Levy
