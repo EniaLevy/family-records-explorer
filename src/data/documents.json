@@ -231,8 +231,8 @@
     ],
     "versions": [
       {
-        "id": "scan",
-        "label": "Scan",
+        "id": "originale",
+        "label": "Originale",
         "assets": [
           {
             "type": "pdf",
@@ -241,8 +241,8 @@
         ]
       },
 	  {
-        "id": "scan",
-        "label": "Scan",
+        "id": "extrait",
+        "label": "Extrait",
         "assets": [
           {
             "type": "pdf",
@@ -802,7 +802,7 @@
     "versions": [
       {
         "id": "scan",
-        "label": "Scan",
+        "label": "Ancienne",
         "assets": [
           {
             "type": "pdf",
@@ -812,7 +812,7 @@
       },
       {
         "id": "photo",
-        "label": "Photo",
+        "label": "Nouvelle",
         "assets": [
           {
             "type": "pdf",
