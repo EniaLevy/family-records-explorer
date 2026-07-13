@@ -5,6 +5,8 @@ import {
     FaUserFriends,
 } from "react-icons/fa";
 
+import { getAssetUrl } from "../utils/assets";
+
 import Breadcrumbs from "../components/Navigation/Breadcrumbs";
 import DocumentListItem from "../components/People/DocumentListItem";
 
@@ -83,7 +85,7 @@ export default function PersonRecord() {
                     {person.portrait ? (
 
                         <img
-                            src={person.portrait}
+                            src={getAssetUrl(person.portrait)}
                             alt={person.fullName}
                             className="h-56 w-56 rounded-3xl object-cover shadow"
                         />

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
+import { getAssetUrl } from "../utils/assets";
+
 import Breadcrumbs from "../components/Navigation/Breadcrumbs";
 import PDFViewer from "../components/Documents/PDFViewer";
 
@@ -312,7 +314,7 @@ export default function DocumentRecord() {
 
                                 <a
 
-                                    href={pdfAsset.path}
+                                    href={getAssetUrl(pdfAsset.path)}
 
                                     target="_blank"
 
@@ -328,7 +330,7 @@ export default function DocumentRecord() {
 
                                 <a
 
-                                    href={pdfAsset.path}
+                                    href={getAssetUrl(pdfAsset.path)}
 
                                     download
 
@@ -342,7 +344,7 @@ export default function DocumentRecord() {
 
                             </div>
 
-                            <PDFViewer file={pdfAsset.path} />
+                            <PDFViewer file={getAssetUrl(pdfAsset.path)} />
 
                         </>
 
@@ -352,7 +354,7 @@ export default function DocumentRecord() {
 
                         <img
 
-                            src={imageAsset.path}
+                            src={getAssetUrl(imageAsset.path)}
 
                             alt={document.title}
 
