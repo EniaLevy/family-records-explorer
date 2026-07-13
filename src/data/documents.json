@@ -35,7 +35,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/birth_ferdinand_levy.pdf"
+            "path": "documents/birth_ferdinand_levy.pdf"
           }
         ]
       }
@@ -104,7 +104,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/birth_jean_levy.pdf"
+            "path": "documents/birth_jean_levy.pdf"
           }
         ]
       }
@@ -139,7 +139,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/passport_jean_levy.pdf"
+            "path": "documents/passport_jean_levy.pdf"
           }
         ]
       }
@@ -183,7 +183,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/recensement_jean_levy.pdf"
+            "path": "documents/recensement_jean_levy.pdf"
           }
         ]
       }
@@ -236,7 +236,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/birth_genevieve_cerff_og.pdf"
+            "path": "documents/birth_genevieve_cerff_og.pdf"
           }
         ]
       },
@@ -246,7 +246,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/birth_genevieve_cerff_scan.pdf"
+            "path": "documents/birth_genevieve_cerff_scan.pdf"
           }
         ]
       }
@@ -291,7 +291,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/service_national_juan_jorge.pdf"
+            "path": "documents/service_national_juan_jorge.pdf"
           }
         ]
       }
@@ -331,7 +331,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/birth_andre_cerff.pdf"
+            "path": "documents/birth_andre_cerff.pdf"
           }
         ]
       }
@@ -372,7 +372,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/death_andre_cerff.pdf"
+            "path": "documents/death_andre_cerff.pdf"
           }
         ]
       }
@@ -412,7 +412,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/birth_louise_fanny_freudenberg.pdf"
+            "path": "documents/birth_louise_fanny_freudenberg.pdf"
           }
         ]
       }
@@ -461,7 +461,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/marriage_andre_cerff_louise_fanny_freudenberg.pdf"
+            "path": "documents/marriage_andre_cerff_louise_fanny_freudenberg.pdf"
           }
         ]
       }
@@ -540,7 +540,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/livret_andre_cerff_louise_fanny_freudenberg_photo.pdf"
+            "path": "documents/livret_andre_cerff_louise_fanny_freudenberg_photo.pdf"
           }
         ]
       },
@@ -550,7 +550,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/livret_andre_cerff_louise_fanny_freudenberg_scan.pdf"
+            "path": "documents/livret_andre_cerff_louise_fanny_freudenberg_scan.pdf"
           }
         ]
       }
@@ -600,7 +600,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/marriage_jean_levy_genevieve_cerff.pdf"
+            "path": "documents/marriage_jean_levy_genevieve_cerff.pdf"
           }
         ]
       }
@@ -683,7 +683,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/livret_jean_levy_genevieve_cerff.pdf"
+            "path": "documents/livret_jean_levy_genevieve_cerff.pdf"
           }
         ]
       }
@@ -731,7 +731,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/marriage_gerard_levy_catalina_fernandez.pdf"
+            "path": "documents/marriage_gerard_levy_catalina_fernandez.pdf"
           }
         ]
       }
@@ -806,7 +806,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/livret_gerard_levy_catalina_fernandez_scan.pdf"
+            "path": "documents/livret_gerard_levy_catalina_fernandez_scan.pdf"
           }
         ]
       },
@@ -816,7 +816,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/livret_gerard_levy_catalina_fernandez_photo.pdf"
+            "path": "documents/livret_gerard_levy_catalina_fernandez_photo.pdf"
           }
         ]
       }
@@ -860,7 +860,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/birth_juan_jorge_levy.pdf"
+            "path": "documents/birth_juan_jorge_levy.pdf"
           }
         ]
       }
@@ -903,7 +903,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/consular_registration_juan_jorge_levy.pdf"
+            "path": "documents/consular_registration_juan_jorge_levy.pdf"
           }
         ]
       }
@@ -953,7 +953,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/marriage_juan_jorge_levy_susana_lozano.pdf"
+            "path": "documents/marriage_juan_jorge_levy_susana_lozano.pdf"
           }
         ]
       }
@@ -1029,7 +1029,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/livret_juan_jorge_levy_susana_lozano.pdf"
+            "path": "documents/livret_juan_jorge_levy_susana_lozano.pdf"
           }
         ]
       }
@@ -1079,7 +1079,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/marriage_ferdinand_levy_laure_sophie_rueff.pdf"
+            "path": "documents/marriage_ferdinand_levy_laure_sophie_rueff.pdf"
           }
         ]
       }
@@ -1122,7 +1122,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/migration_card_laure_sophie_rueff.pdf"
+            "path": "documents/migration_card_laure_sophie_rueff.pdf"
           }
         ]
       }
@@ -1157,7 +1157,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/identity_card_eugenia_levy.pdf"
+            "path": "documents/identity_card_eugenia_levy.pdf"
           }
         ]
       }
@@ -1192,7 +1192,7 @@
         "assets": [
           {
             "type": "pdf",
-            "path": "/documents/passport_eugenia_levy.pdf"
+            "path": "documents/passport_eugenia_levy.pdf"
           }
         ]
       }
@@ -1244,7 +1244,7 @@
        "assets": [
          {
            "type": "pdf",
-           "path": "/documents/birth_eugenia_levy.pdf"
+           "path": "documents/birth_eugenia_levy.pdf"
           }
         ]
       }
