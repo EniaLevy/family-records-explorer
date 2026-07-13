@@ -4,7 +4,9 @@ import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 
-pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
+import { getAssetUrl } from "../../utils/assets";
+
+pdfjs.GlobalWorkerOptions.workerSrc = getAssetUrl('/pdf.worker.min.mjs');
 
 interface PDFViewerProps {
     file: string;
