@@ -52,12 +52,6 @@ export default function DocumentListItem({
 
                     </h3>
 
-                    <p className="mt-1 text-sm text-gray-500">
-
-                        {document.documentType}
-
-                    </p>
-
                     <div className="mt-4 flex flex-wrap gap-6 text-sm text-gray-600">
 
                         {document.creationDate && (

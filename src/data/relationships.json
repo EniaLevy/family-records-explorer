@@ -9,11 +9,13 @@
   {
     "type": "parent-child",
     "parent": "andre-cerff",
+    "parentRole": "father",
     "child": "genevieve-cerff"
   },
   {
     "type": "parent-child",
     "parent": "louise-fanny-freudenberg",
+    "parentRole": "mother",
     "child": "genevieve-cerff"
   },
   {
@@ -26,11 +28,13 @@
   {
     "type": "parent-child",
     "parent": "jean-levy",
+    "parentRole": "father",
     "child": "gerard-levy"
   },
   {
     "type": "parent-child",
     "parent": "genevieve-cerff",
+    "parentRole": "mother",
     "child": "gerard-levy"
   },
   {
@@ -43,11 +47,13 @@
   {
     "type": "parent-child",
     "parent": "gerard-levy",
+    "parentRole": "father",
     "child": "juan-jorge-levy"
   },
   {
     "type": "parent-child",
     "parent": "catalina-fernandez",
+    "parentRole": "mother",
     "child": "juan-jorge-levy"
   },
   {
@@ -60,11 +66,13 @@
   {
     "type": "parent-child",
     "parent": "juan-jorge-levy",
+    "parentRole": "father",
     "child": "eugenia-levy"
   },
   {
     "type": "parent-child",
     "parent": "susana-lozano",
+    "parentRole": "mother",
     "child": "eugenia-levy"
   }
 ]
