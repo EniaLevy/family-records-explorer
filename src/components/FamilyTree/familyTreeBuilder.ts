@@ -5,7 +5,13 @@ import type {
     Node,
 } from "reactflow";
 
-import { getPeople } from "../../services/archive";
+import {
+    getPeople,
+} from "../../services/archive";
+
+import type {
+    Person,
+} from "../../types/Person";
 
 import relationships from "../../data/relationships.json";
 
@@ -34,6 +40,12 @@ const EDGE_OPTIONS = {
     offset: 8,
 };
 
+export interface FamilyNodeData {
+
+    person: Person;
+
+}
+
 export function buildFamilyTree() {
 
     const graph = new dagre.graphlib.Graph();
@@ -58,17 +70,24 @@ export function buildFamilyTree() {
 
     people.forEach(person => {
 
-        graph.setNode(person.id, {
+        graph.setNode(
 
-            width: NODE_WIDTH,
+            person.id,
 
-            height: NODE_HEIGHT,
+            {
 
-        });
+                width: NODE_WIDTH,
+
+                height: NODE_HEIGHT,
+
+            }
+
+        );
 
     });
 
     const marriageNodes: Node[] = [];
+
     const edges: Edge[] = [];
 
     relationshipData
@@ -88,6 +107,7 @@ export function buildFamilyTree() {
         .forEach(relationship => {
 
             const marriageId =
+
                 `marriage_${relationship.husband}_${relationship.wife}`;
 
             graph.setNode(
@@ -198,9 +218,9 @@ export function buildFamilyTree() {
 
                             ): relation is ParentChildRelationship =>
 
-                                relation.type === "parent-child" &&
+                                relation.type === "parent-child"
 
-                                (
+                                && (
 
                                     relation.parent === relationship.husband ||
 
@@ -254,60 +274,70 @@ export function buildFamilyTree() {
 
     dagre.layout(graph);
 
-    const personNodes: Node[] = people.map(person => {
+    const personNodes: Node<FamilyNodeData>[] =
 
-        const position = graph.node(person.id);
+        people.map(person => {
 
-        return {
+            const position =
 
-            id: person.id,
+                graph.node(person.id);
 
-            type: "family",
-
-            draggable: false,
-
-            selectable: false,
-
-            connectable: false,
-
-            position: {
-
-                x:
-                    position.x -
-                    NODE_WIDTH / 2,
-
-                y:
-                    position.y -
-                    NODE_HEIGHT / 2,
-
-            },
-
-            data: {
+            return {
 
                 id: person.id,
 
-                name: person.fullName,
+                type: "family",
 
-                portrait: person.portrait,
+                draggable: false,
 
-            },
+                selectable: false,
 
-        };
+                connectable: false,
 
-    });
+                position: {
+
+                    x:
+
+                        position.x -
+
+                        NODE_WIDTH / 2,
+
+                    y:
+
+                        position.y -
+
+                        NODE_HEIGHT / 2,
+
+                },
+
+                data: {
+
+                    person,
+
+                },
+
+            };
+
+        });
 
     marriageNodes.forEach(node => {
 
-        const position = graph.node(node.id);
+        const position =
+
+            graph.node(node.id);
 
         node.position = {
 
             x:
+
                 position.x -
+
                 MARRIAGE_WIDTH / 2,
 
             y:
+
                 position.y -
+
                 MARRIAGE_HEIGHT / 2,
 
         };

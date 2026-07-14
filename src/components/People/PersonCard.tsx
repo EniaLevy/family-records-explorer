@@ -5,6 +5,7 @@ import type { Person } from "../../types/Person";
 import { getAssetUrl } from "../../utils/assets";
 
 import Portrait from "../Common/Portrait";
+import ReferenceOnlyBadge from "../Common/ReferenceOnlyBadge";
 
 import {
     formatFrenchDate,
@@ -27,17 +28,15 @@ export default function PersonCard({
 
 }: PersonCardProps) {
 
-    const ownedDocuments = getDocumentCount(person.id);
+    const ownedDocuments =
+        getDocumentCount(person.id);
 
     const referencedDocuments =
         getReferencedDocuments(person.id).length;
 
-    return (
+    const content = (
 
-        <Link
-            to={`/people/${person.id}`}
-            className="group block rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-blue-500 hover:shadow-xl"
-        >
+        <>
 
             <div className="mb-6">
 
@@ -55,12 +54,31 @@ export default function PersonCard({
 
             </h2>
 
+            {
+
+                person.isReferenceOnly && (
+
+                    <div className="mb-4">
+
+                        <ReferenceOnlyBadge />
+
+                    </div>
+
+                )
+
+            }
+
             <p className="mb-6 text-gray-500">
 
                 {formatFrenchDate(person.birthDate)}
 
-                {person.deathDate &&
-                    ` — ${formatFrenchDate(person.deathDate)}`}
+                {
+
+                    person.deathDate &&
+
+                    ` — ${formatFrenchDate(person.deathDate)}`
+
+                }
 
             </p>
 
@@ -76,7 +94,7 @@ export default function PersonCard({
 
                     <p>
 
-                        {person.nationality}
+                        {person.nationality ?? "—"}
 
                     </p>
 
@@ -119,6 +137,40 @@ export default function PersonCard({
                 </div>
 
             </div>
+
+        </>
+
+    );
+
+    if (person.isReferenceOnly) {
+
+        return (
+
+            <div
+
+                className="rounded-2xl border border-slate-300 bg-slate-50 p-8 shadow-sm"
+
+            >
+
+                {content}
+
+            </div>
+
+        );
+
+    }
+
+    return (
+
+        <Link
+
+            to={`/people/${person.id}`}
+
+            className="group block rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-blue-500 hover:shadow-xl"
+
+        >
+
+            {content}
 
         </Link>
 

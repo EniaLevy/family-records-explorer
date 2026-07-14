@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import PersonReference from "../components/Common/PersonReference";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 import { getAssetUrl } from "../utils/assets";
 
@@ -8,47 +10,26 @@ import PDFViewer from "../components/Documents/PDFViewer";
 
 import {
     getDocument,
-    getPerson,
 } from "../services/archive";
+
+import {
+    getPersonDisplay,
+} from "../services/personDisplay";
 
 import { formatFrenchDate } from "../utils/date";
 import { getDocumentTypeLabel } from "../utils/documentType";
 
-function translateRole(role: string): string {
-
-    const labels: Record<string, string> = {
-
-        subject: "Sujet",
-        holder: "Titulaire",
-
-        father: "Père",
-        mother: "Mère",
-
-        grandfather: "Grand-père",
-        grandmother: "Grand-mère",
-
-        husband: "Époux",
-        wife: "Épouse",
-
-        child: "Enfant",
-
-        deceased: "Décédé",
-
-        father_of_husband: "Père de l'époux",
-        mother_of_husband: "Mère de l'époux",
-
-        father_of_wife: "Père de l'épouse",
-        mother_of_wife: "Mère de l'épouse",
-
-    };
-
-    return labels[role] ?? role;
-
-}
+import { translateRole } from "../utils/documentRoles";
 
 export default function DocumentRecord() {
 
     const { id } = useParams();
+
+    useEffect(() => {
+
+        window.scrollTo(0, 0);
+
+    }, [id]);
 
     const document = getDocument(id ?? "");
 
@@ -60,7 +41,7 @@ export default function DocumentRecord() {
 
             <div>
 
-                <h1 className="text-4xl font-bold">
+                <h1 className="text-4xl md:text-5xl font-bold">
 
                     Document introuvable
 
@@ -75,11 +56,15 @@ export default function DocumentRecord() {
     const version = document.versions[selectedVersion];
 
     const pdfAsset = version.assets.find(
+
         asset => asset.type === "pdf"
+
     );
 
     const imageAsset = version.assets.find(
+
         asset => asset.type === "image"
+
     );
 
     return (
@@ -102,15 +87,15 @@ export default function DocumentRecord() {
                 ]}
             />
 
-            <header className="mb-10">
+            <header className="mb-8 md:mb-10">
 
-                <h1 className="mb-2 text-5xl font-bold">
+                <h1 className="mb-2 break-words text-4xl md:text-5xl font-bold">
 
                     {document.title}
 
                 </h1>
 
-                <p className="text-lg text-gray-500">
+                <p className="text-base md:text-lg text-gray-500">
 
                     {getDocumentTypeLabel(document.documentType)}
 
@@ -118,19 +103,19 @@ export default function DocumentRecord() {
 
             </header>
 
-            <div className="grid gap-8 lg:grid-cols-[420px_1fr]">
+            <div className="space-y-8">
 
-                <aside className="space-y-6">
+                <div className="grid gap-8 lg:grid-cols-2">
 
-                    <section className="rounded-2xl border bg-white p-6 shadow-sm">
+                    <section className="rounded-2xl border bg-white p-5 md:p-6 shadow-sm">
 
-                        <h2 className="mb-5 text-xl font-semibold">
+                        <h2 className="mb-5 text-lg md:text-xl font-semibold">
 
                             Informations
 
                         </h2>
 
-                        <div className="space-y-4 text-sm">
+                        <div className="grid gap-6 text-sm">
 
                             {document.creationDate && (
 
@@ -186,55 +171,88 @@ export default function DocumentRecord() {
 
                                     <strong>Source</strong>
 
-                                    <p>{document.source}</p>
+                                    <div className="mt-1">
+
+                                        {document.source.url ? (
+
+                                            <a
+
+                                                href={document.source.url}
+
+                                                target="_blank"
+
+                                                rel="noopener noreferrer"
+
+                                                className="inline-flex items-center gap-2 break-words text-blue-600 transition hover:text-blue-700 hover:underline"
+
+                                            >
+
+                                                {document.source.label}
+
+                                                <FaExternalLinkAlt className="text-xs opacity-75" />
+
+                                            </a>
+
+                                        ) : (
+
+                                            <p className="break-words">
+
+                                                {document.source.label}
+
+                                            </p>
+
+                                        )}
+
+                                        {document.source.archiveReference && (
+
+                                            <p className="mt-2 font-mono text-xs text-slate-500">
+
+                                                {document.source.archiveReference}
+
+                                            </p>
+
+                                        )}
+
+                                    </div>
 
                                 </div>
 
                             )}
-
                         </div>
 
                     </section>
 
-                    <section className="rounded-2xl border bg-white p-6 shadow-sm">
+                    <section className="rounded-2xl border bg-white p-5 md:p-6 shadow-sm">
 
-                        <h2 className="mb-5 text-xl font-semibold">
+                        <h2 className="mb-5 text-lg md:text-xl font-semibold">
 
                             Personnes mentionnées
 
                         </h2>
 
-                        <div className="space-y-4">
+                        <div className="space-y-3">
 
                             {document.referencedPeople.map((reference) => {
 
-                                const person = getPerson(reference.person);
+                                const display = getPersonDisplay(
 
-                                if (!person) return null;
+                                    reference.person,
+
+                                    reference.name
+
+                                );
 
                                 return (
 
-                                    <div key={`${reference.person}-${reference.role}`}>
+                                    <PersonReference
 
-                                        <div className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                        key={`${reference.role}-${reference.person ?? reference.name}`}
 
-                                            {translateRole(reference.role)}
+                                        person={display}
 
-                                        </div>
+                                        role={translateRole(reference.role)}
 
-                                        <Link
-
-                                            to={`/people/${person.id}`}
-
-                                            className="block rounded-lg bg-slate-100 px-4 py-2 transition hover:bg-blue-100"
-
-                                        >
-
-                                            {person.fullName}
-
-                                        </Link>
-
-                                    </div>
+                                    />
 
                                 );
 
@@ -244,109 +262,73 @@ export default function DocumentRecord() {
 
                     </section>
 
-                    {document.versions.length > 1 && (
+                </div>
 
-                        <section className="rounded-2xl border bg-white p-6 shadow-sm">
+                {document.versions.length > 1 && (
 
-                            <h2 className="mb-4 text-xl font-semibold">
+                    <section className="rounded-2xl border bg-white p-5 md:p-6 shadow-sm">
 
-                                Versions
+                        <h2 className="mb-4 text-lg md:text-xl font-semibold">
 
-                            </h2>
+                            Versions
 
-                            <div className="space-y-2">
+                        </h2>
 
-                                {document.versions.map((version, index) => (
+                        <div className="flex flex-wrap gap-3">
 
-                                    <button
+                            {document.versions.map((version, index) => (
 
-                                        key={version.id}
+                                <button
 
-                                        onClick={() => setSelectedVersion(index)}
+                                    key={version.id}
 
-                                        className={`w-full rounded-lg px-4 py-3 text-left transition ${
+                                    onClick={() => setSelectedVersion(index)}
 
-                                            index === selectedVersion
+                                    className={`rounded-lg px-4 py-3 text-left transition ${
+                                        index === selectedVersion
+                                            ? "bg-blue-600 text-white"
+                                            : "bg-slate-100 hover:bg-slate-200"
+                                    }`}
 
-                                                ? "bg-blue-600 text-white"
+                                >
 
-                                                : "bg-slate-100 hover:bg-slate-200"
+                                    <div>
 
-                                        }`}
+                                        {version.label}
 
-                                    >
+                                    </div>
 
-                                        <div>
+                                    {version.description && (
 
-                                            {version.label}
+                                        <div className="mt-1 text-sm opacity-80">
+
+                                            {version.description}
 
                                         </div>
 
-                                        {version.description && (
+                                    )}
 
-                                            <div className="mt-1 text-sm opacity-80">
+                                </button>
 
-                                                {version.description}
+                            ))}
 
-                                            </div>
+                        </div>
 
-                                        )}
+                    </section>
 
-                                    </button>
+                )}
 
-                                ))}
-
-                            </div>
-
-                        </section>
-
-                    )}
-
-                </aside>
-
-                <main className="rounded-2xl border bg-white p-6 shadow-sm">
+                <section className="rounded-2xl border bg-white p-4 md:p-6 shadow-sm">
 
                     {pdfAsset && (
 
-                        <>
+                        <PDFViewer
 
-                            <div className="mb-4 flex gap-3">
+                            file={getAssetUrl(pdfAsset.path)}
 
-                                <a
+                            originalUrl={getAssetUrl(pdfAsset.path)}
 
-                                    href={getAssetUrl(pdfAsset.path)}
-
-                                    target="_blank"
-
-                                    rel="noopener noreferrer"
-
-                                    className="rounded bg-slate-700 px-4 py-2 text-white hover:bg-slate-800"
-
-                                >
-
-                                    Ouvrir l'original
-
-                                </a>
-
-                                <a
-
-                                    href={getAssetUrl(pdfAsset.path)}
-
-                                    download
-
-                                    className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
-
-                                >
-
-                                    Télécharger
-
-                                </a>
-
-                            </div>
-
-                            <PDFViewer file={getAssetUrl(pdfAsset.path)} />
-
-                        </>
+                        />
 
                     )}
 
@@ -358,7 +340,7 @@ export default function DocumentRecord() {
 
                             alt={document.title}
 
-                            className="mx-auto max-h-225 rounded-lg"
+                            className="mx-auto w-full rounded-lg"
 
                         />
 
@@ -374,7 +356,7 @@ export default function DocumentRecord() {
 
                     )}
 
-                </main>
+                </section>
 
             </div>
 

@@ -1,4 +1,6 @@
 import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import PersonReference from "../components/Common/PersonReference";
 import {
     FaBirthdayCake,
     FaFlag,
@@ -7,6 +9,10 @@ import {
 
 import { getAssetUrl } from "../utils/assets";
 
+import {
+    getPersonDisplay,
+} from "../services/personDisplay";
+
 import Breadcrumbs from "../components/Navigation/Breadcrumbs";
 import DocumentListItem from "../components/People/DocumentListItem";
 
@@ -14,15 +20,21 @@ import {
     getPerson,
     getDocumentsForPerson,
     getReferencedDocuments,
-    getFather,
-    getMother,
-    getChildren,
-    getSpouses,
+    getFatherRelationship,
+    getMotherRelationship,
+    getChildrenRelationships,
+    getMarriageRelationships,
 } from "../services/archive";
 
 export default function PersonRecord() {
 
     const { id } = useParams();
+
+    useEffect(() => {
+
+        window.scrollTo(0, 0);
+
+    }, [id]);
 
     const person = getPerson(id ?? "");
 
@@ -32,11 +44,69 @@ export default function PersonRecord() {
 
             <div>
 
-                <h1 className="text-5xl font-bold">
+                <h1 className="text-4xl md:text-5xl font-bold">
 
                     Personne introuvable
 
                 </h1>
+
+            </div>
+
+        );
+
+    }
+
+    if (person.isReferenceOnly) {
+
+        return (
+
+            <div>
+
+                <Breadcrumbs
+                    items={[
+                        {
+                            label: "Accueil",
+                            to: "/",
+                        },
+                        {
+                            label: "Personnes",
+                            to: "/people",
+                        },
+                        {
+                            label: person.fullName,
+                        },
+                    ]}
+                />
+
+                <div className="mx-auto mt-16 max-w-3xl rounded-3xl border border-slate-300 bg-slate-50 p-10 text-center shadow-sm">
+
+                    <h1 className="mb-4 text-4xl font-bold">
+
+                        Dossier individuel indisponible
+
+                    </h1>
+
+                    <p className="mx-auto mb-8 max-w-2xl text-lg text-slate-600">
+
+                        <strong>{person.fullName}</strong> est bien mentionné(e)
+                        dans les archives familiales, mais ne dispose pas encore
+                        d'un dossier individuel.
+
+                    </p>
+
+                    <Link
+
+                        to="/people"
+
+                        className="inline-flex rounded-xl bg-blue-600 px-6 py-3 font-medium text-white transition hover:bg-blue-700"
+
+                    >
+
+                        ← Retour aux personnes
+
+                    </Link>
+
+                </div>
 
             </div>
 
@@ -50,13 +120,66 @@ export default function PersonRecord() {
     const referencedDocuments =
         getReferencedDocuments(person.id);
 
-    const father = getFather(person.id);
+    const fatherRelationship =
+        getFatherRelationship(person.id);
 
-    const mother = getMother(person.id);
+    const motherRelationship =
+        getMotherRelationship(person.id);
 
-    const spouses = getSpouses(person.id);
+    const marriageRelationships =
+        getMarriageRelationships(person.id);
 
-    const children = getChildren(person.id);
+    const childrenRelationships =
+        getChildrenRelationships(person.id);
+
+    const father =
+        fatherRelationship
+            ? getPersonDisplay(
+                fatherRelationship.parent,
+                fatherRelationship.parentName
+            )
+            : undefined;
+
+    const mother =
+        motherRelationship
+            ? getPersonDisplay(
+                motherRelationship.parent,
+                motherRelationship.parentName
+            )
+            : undefined;
+
+    const spouses =
+        marriageRelationships.map(relationship => {
+
+            const spouseId =
+                relationship.husband === person.id
+                    ? relationship.wife
+                    : relationship.husband;
+
+            const spouseName =
+                relationship.husband === person.id
+                    ? relationship.wifeName
+                    : relationship.husbandName;
+
+            return getPersonDisplay(
+                spouseId,
+                spouseName
+            );
+
+        });
+
+    const children =
+        childrenRelationships.map(relationship =>
+
+            getPersonDisplay(
+
+                relationship.child,
+
+                relationship.childName
+
+            )
+
+        );
 
     return (
 
@@ -78,21 +201,21 @@ export default function PersonRecord() {
                 ]}
             />
 
-            <header className="mb-12 flex gap-10">
+            <header className="mb-10 flex flex-col lg:flex-row gap-8 lg:gap-10">
 
-                <div>
+                <div className="flex justify-center lg:block shrink-0">
 
                     {person.portrait ? (
 
                         <img
                             src={getAssetUrl(person.portrait)}
                             alt={person.fullName}
-                            className="h-56 w-56 rounded-3xl object-cover shadow"
+                            className="h-48 w-48 md:h-56 md:w-56 rounded-3xl object-cover shadow"
                         />
 
                     ) : (
 
-                        <div className="flex h-56 w-56 items-center justify-center rounded-3xl bg-slate-200 text-7xl text-slate-500">
+                        <div className="flex h-48 w-48 md:h-56 md:w-56 items-center justify-center rounded-3xl bg-slate-200 text-6xl md:text-7xl text-slate-500">
 
                             👤
 
@@ -104,7 +227,7 @@ export default function PersonRecord() {
 
                 <div className="flex-1">
 
-                    <h1 className="mb-3 text-6xl font-bold">
+                    <h1 className="mb-3 text-4xl md:text-5xl lg:text-6xl font-bold text-center lg:text-left">
 
                         {person.fullName}
 
@@ -112,9 +235,9 @@ export default function PersonRecord() {
 
                     <div className="mt-8 grid gap-6 md:grid-cols-2">
 
-                        <div className="rounded-2xl border bg-white p-6 shadow-sm">
+                        <div className="rounded-2xl border bg-white p-5 md:p-6 shadow-sm">
 
-                            <h2 className="mb-5 text-2xl font-semibold">
+                            <h2 className="mb-5 text-xl md:text-2xl font-semibold">
 
                                 Informations
 
@@ -174,9 +297,9 @@ export default function PersonRecord() {
 
                         </div>
 
-                        <div className="rounded-2xl border bg-white p-6 shadow-sm">
+                        <div className="rounded-2xl border bg-white p-5 md:p-6 shadow-sm">
 
-                            <h2 className="mb-5 text-2xl font-semibold">
+                            <h2 className="mb-5 text-xl md:text-2xl font-semibold">
 
                                 Famille
 
@@ -188,16 +311,15 @@ export default function PersonRecord() {
 
                                     <div>
 
-                                        <strong>Père</strong>
-
                                         <br />
 
-                                        <Link
-                                            to={`/people/${father.id}`}
-                                            className="text-blue-600 hover:underline"
-                                        >
-                                            {father.fullName}
-                                        </Link>
+                                        <PersonReference
+
+                                            person={father}
+
+                                            role="Père"
+
+                                        />
 
                                     </div>
 
@@ -207,16 +329,15 @@ export default function PersonRecord() {
 
                                     <div>
 
-                                        <strong>Mère</strong>
-
                                         <br />
 
-                                        <Link
-                                            to={`/people/${mother.id}`}
-                                            className="text-blue-600 hover:underline"
-                                        >
-                                            {mother.fullName}
-                                        </Link>
+                                        <PersonReference
+
+                                            person={mother}
+
+                                            role="Mère"
+
+                                        />
 
                                     </div>
 
@@ -226,19 +347,19 @@ export default function PersonRecord() {
 
                                     <div>
 
-                                        <strong>Conjoint</strong>
-
                                         <div className="mt-2 space-y-1">
 
-                                            {spouses.map((spouse) => (
+                                            {spouses.map((spouse, index) => (
 
-                                                <Link
-                                                    key={spouse.id}
-                                                    to={`/people/${spouse.id}`}
-                                                    className="block text-blue-600 hover:underline"
-                                                >
-                                                    {spouse.fullName}
-                                                </Link>
+                                                <PersonReference
+
+                                                    key={index}
+
+                                                    person={spouse}
+
+                                                    role="Conjoint"
+
+                                                />
 
                                             ))}
 
@@ -251,20 +372,20 @@ export default function PersonRecord() {
                                 {children.length > 0 && (
 
                                     <div>
-
-                                        <strong>Enfants</strong>
-
+                                        
                                         <div className="mt-2 space-y-1">
 
-                                            {children.map((child) => (
+                                            {children.map((child, index) => (
 
-                                                <Link
-                                                    key={child.id}
-                                                    to={`/people/${child.id}`}
-                                                    className="block text-blue-600 hover:underline"
-                                                >
-                                                    {child.fullName}
-                                                </Link>
+                                                <PersonReference
+
+                                                    key={index}
+
+                                                    person={child}
+
+                                                    role="Enfant"
+
+                                                />
 
                                             ))}
 
@@ -284,13 +405,13 @@ export default function PersonRecord() {
 
             </header>
 
-            <section className="mb-14">
+            <section className="mb-12 md:mb-14">
 
-                <div className="mb-8 flex items-center gap-3">
+                <div className="mb-6 md:mb-8 flex items-center gap-3">
 
                     <FaUserFriends className="text-blue-600" />
 
-                    <h2 className="text-3xl font-bold">
+                    <h2 className="text-2xl md:text-3xl font-bold">
 
                         Documents principaux
 
@@ -327,11 +448,11 @@ export default function PersonRecord() {
 
             <section>
 
-                <div className="mb-8 flex items-center gap-3">
+                <div className="mb-6 md:mb-8 flex items-center gap-3">
 
                     <FaUserFriends className="text-blue-600" />
 
-                    <h2 className="text-3xl font-bold">
+                    <h2 className="text-2xl md:text-3xl font-bold">
 
                         Mentionné dans
 

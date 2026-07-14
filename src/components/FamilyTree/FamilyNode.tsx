@@ -9,52 +9,83 @@ import { getAssetUrl } from "../../utils/assets";
 
 import {
     getDocumentsForPerson,
-    getPerson,
 } from "../../services/archive";
 
 import { formatFrenchYear } from "../../utils/date";
 
+import type { Person } from "../../types/Person";
+
+import ReferenceOnlyBadge from "../Common/ReferenceOnlyBadge";
+
 interface FamilyNodeData {
-    id: string;
-    name: string;
-    portrait?: string | null;
+
+    person: Person;
+
 }
 
 interface FamilyNodeProps {
+
     data: FamilyNodeData;
+
 }
 
-function getYears(personId: string): string {
+function getYears(person: Person): string {
 
-    const person = getPerson(personId);
+    const birth = formatFrenchYear(
 
-    if (!person) {
-        return "";
-    }
+        person.birthDate
 
-    const birth = formatFrenchYear(person.birthDate);
-    const death = formatFrenchYear(person.deathDate);
+    );
+
+    const death = formatFrenchYear(
+
+        person.deathDate
+
+    );
 
     if (birth && death) {
+
         return `${birth} – ${death}`;
+
     }
 
     if (birth) {
+
         return `${birth} –`;
+
     }
 
     if (death) {
+
         return `† ${death}`;
+
     }
 
     return "";
+
 }
 
 function getNationalityStyle(
-    nationality?: string | null
+
+    person: Person
+
 ) {
 
-    if (!nationality) {
+    if (person.isReferenceOnly) {
+
+        return {
+
+            background: "bg-slate-50",
+
+            border: "border-slate-300 border-dashed",
+
+            accent: "bg-slate-400",
+
+        };
+
+    }
+
+    if (!person.nationality) {
 
         return {
 
@@ -68,15 +99,21 @@ function getNationalityStyle(
 
     }
 
-    const lower = nationality.toLowerCase();
+    const lower =
+
+        person.nationality.toLowerCase();
 
     const isFrench =
+
         lower.includes("français") ||
+
         lower.includes("française");
 
     const isMixed =
+
         isFrench &&
-        nationality.includes("/");
+
+        person.nationality.includes("/");
 
     if (isMixed) {
 
@@ -119,36 +156,60 @@ function getNationalityStyle(
 }
 
 export default function FamilyNode({
+
     data,
+
 }: FamilyNodeProps) {
 
-    const person = getPerson(data.id);
+    const person = data.person;
 
-    const documentCount =
-        getDocumentsForPerson(data.id).length;
+    const years = getYears(person);
 
     const style =
-        getNationalityStyle(
-            person?.nationality
-        );
+
+        getNationalityStyle(person);
+
+    const documentCount =
+
+        getDocumentsForPerson(
+
+            person.id
+
+        ).length;
 
     return (
 
         <>
 
             <Handle
+
                 type="target"
+
                 position={Position.Top}
+
                 style={{ opacity: 0 }}
+
             />
 
             <div
 
-                className={`nodrag nopan cursor-pointer w-60 overflow-hidden rounded-3xl border shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl ${style.background} ${style.border}`}
+                className={`nodrag nopan w-60 overflow-hidden rounded-3xl border shadow-sm transition-all duration-200 ${
+
+                    person.isReferenceOnly
+
+                        ? ""
+
+                        : "cursor-pointer hover:-translate-y-1 hover:shadow-xl"
+
+                } ${style.background} ${style.border}`}
 
             >
 
-                <div className={`h-2 w-full ${style.accent}`} />
+                <div
+
+                    className={`h-2 w-full ${style.accent}`}
+
+                />
 
                 <div className="p-5">
 
@@ -156,11 +217,15 @@ export default function FamilyNode({
 
                         {
 
-                            person?.portrait ? (
+                            person.portrait ? (
 
                                 <img
 
-                                    src={getAssetUrl(person.portrait)}
+                                    src={getAssetUrl(
+
+                                        person.portrait
+
+                                    )}
 
                                     alt={person.fullName}
 
@@ -182,19 +247,33 @@ export default function FamilyNode({
 
                         }
 
-                        <h2 className="text-center text-lg font-semibold leading-snug">
+                        <h2 className="text-center text-lg font-semibold leading-tight break-words">
 
-                            {person?.fullName ?? data.name}
+                            {person.fullName}
 
                         </h2>
 
                         {
 
-                            getYears(data.id) && (
+                            person.isReferenceOnly && (
 
-                                <p className="mt-1 text-sm text-slate-500">
+                                <div className="mt-3">
 
-                                    {getYears(data.id)}
+                                    <ReferenceOnlyBadge compact />
+
+                                </div>
+
+                            )
+
+                        }
+
+                        {
+
+                            years && (
+
+                                <p className="mt-2 text-sm text-slate-500">
+
+                                    {years}
 
                                 </p>
 
@@ -204,9 +283,11 @@ export default function FamilyNode({
 
                         {
 
-                            person?.nationality && (
+                            person.nationality &&
 
-                                <p className="mt-2 text-sm text-slate-500">
+                            !person.isReferenceOnly && (
+
+                                <p className="mt-2 max-w-full break-words text-center text-sm text-slate-500">
 
                                     {person.nationality}
 
@@ -222,7 +303,17 @@ export default function FamilyNode({
 
                             <span>
 
-                                {documentCount} {documentCount !== 1 ? "documents" : "document"}
+                                {documentCount}{" "}
+
+                                {
+
+                                    documentCount === 1
+
+                                        ? "document"
+
+                                        : "documents"
+
+                                }
 
                             </span>
 
@@ -235,9 +326,13 @@ export default function FamilyNode({
             </div>
 
             <Handle
+
                 type="source"
+
                 position={Position.Bottom}
+
                 style={{ opacity: 0 }}
+
             />
 
         </>

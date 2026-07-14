@@ -31,11 +31,25 @@ export default function Documents() {
 
     );
 
-    const categories = Object.keys(
+    const categories = Object.keys(groupedDocuments).sort(
 
-        groupedDocuments
+        (a, b) =>
 
-    ).sort();
+            getDocumentTypeLabel(a).localeCompare(
+
+                getDocumentTypeLabel(b),
+
+                "fr",
+
+                {
+
+                    sensitivity: "base",
+
+                }
+
+            )
+
+    );
 
     return (
 
@@ -109,9 +123,27 @@ export default function Documents() {
 
                                 {
 
-                                    groupedDocuments[category].map(
+                                    [...groupedDocuments[category]]
 
-                                        document => (
+                                        .sort((a, b) =>
+
+                                            a.title.localeCompare(
+
+                                                b.title,
+
+                                                "fr",
+
+                                                {
+
+                                                    sensitivity: "base",
+
+                                                }
+
+                                            )
+
+                                        )
+
+                                        .map(document => (
 
                                             <DocumentCard
 
@@ -121,9 +153,7 @@ export default function Documents() {
 
                                             />
 
-                                        )
-
-                                    )
+                                        ))
 
                                 }
 

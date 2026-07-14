@@ -7,6 +7,9 @@ import type {
     ArchiveDocument,
 } from "../types/Document";
 
+import { getPersonDisplay } from "./personDisplay";
+import { translateRole } from "../utils/documentRoles";
+
 import type {
     Relationship,
     ParentChildRelationship,
@@ -56,6 +59,24 @@ export function getPerson(
 
 }
 
+export function hasPersonPage(
+    personId: string
+): boolean {
+
+    const person = getPerson(personId);
+
+    return !!person && !person.isReferenceOnly;
+
+}
+
+export function isReferenceOnly(
+    personId: string
+): boolean {
+
+    return !hasPersonPage(personId);
+
+}
+
 export function getDocuments(): ArchiveDocument[] {
 
     return documentData;
@@ -82,7 +103,13 @@ export function getDocumentsForPerson(
 
         document =>
 
-            document.subjects.includes(personId)
+            document.subjects.some(
+
+                subject =>
+
+                    subject.person === personId
+
+            )
 
     );
 
@@ -272,6 +299,129 @@ export function searchPeople(
 
 }
 
+export interface DocumentSearchMatch {
+
+    type:
+        | "subject"
+        | "reference"
+        | "country"
+        | "authority";
+
+    label: string;
+
+    personId?: string;
+
+    role?: string;
+
+}
+
+function pushMatch(
+
+    matches: DocumentSearchMatch[],
+
+    type: DocumentSearchMatch["type"],
+
+    label: string,
+
+    personId?: string,
+
+    role?: string
+
+) {
+
+    const normalizedRole =
+        role === "subject" ? "subject" : role;
+
+    const duplicate = matches.some(match => {
+
+        if (
+            personId &&
+            match.personId
+        ) {
+
+            return (
+                match.personId === personId &&
+                (match.role === "subject"
+                    ? "subject"
+                    : match.role) === normalizedRole
+            );
+
+        }
+
+        return (
+            match.type === type &&
+            match.label === label
+        );
+
+    });
+
+    if (!duplicate) {
+
+        matches.push({
+
+            type,
+
+            label,
+
+            personId,
+
+            role,
+
+        });
+
+    }
+
+}
+
+const matchPriority: Record<string, number> = {
+
+    "Sujet": 0,
+    "Titulaire": 1,
+
+    "Père": 2,
+    "Mère": 3,
+
+    "Époux": 4,
+    "Épouse": 5,
+
+    "Enfant": 6,
+
+    "Grand-père": 7,
+    "Grand-mère": 8,
+
+    "Témoin": 9,
+
+    "Décédé": 10,
+
+    "Titre": 20,
+
+    "Autorité": 30,
+
+    "Pays": 40,
+
+};
+
+function getMatchPriority(
+
+    match: DocumentSearchMatch
+
+): number {
+
+    const prefix =
+
+        match.label.split(" • ")[0];
+
+    return matchPriority[prefix] ?? 100;
+
+}
+export interface DocumentSearchResult {
+
+    document: ArchiveDocument;
+
+    matches: DocumentSearchMatch[];
+
+}
+
 export function searchDocuments(
     query: string
 ): ArchiveDocument[] {
@@ -282,9 +432,9 @@ export function searchDocuments(
 
     }
 
-    return documentData.filter(
+    return documentData.filter(document => {
 
-        document =>
+        if (
 
             contains(document.title, query) ||
 
@@ -293,6 +443,315 @@ export function searchDocuments(
             contains(document.country, query) ||
 
             contains(document.authority, query)
+
+        ) {
+
+            return true;
+
+        }
+
+        if (
+
+            document.subjects.some(subject => {
+
+                const display = getPersonDisplay(
+
+                    subject.person,
+
+                    subject.name
+
+                );
+
+                return contains(
+
+                    display.displayName,
+
+                    query
+
+                );
+
+            })
+
+        ) {
+
+            return true;
+
+        }
+
+        if (
+
+            document.referencedPeople.some(reference => {
+
+                const display = getPersonDisplay(
+
+                    reference.person,
+
+                    reference.name
+
+                );
+
+                return contains(
+
+                    display.displayName,
+
+                    query
+
+                );
+
+            })
+
+        ) {
+
+            return true;
+
+        }
+
+        return false;
+
+    });
+
+}
+
+export function searchDocumentsDetailed(
+
+    query: string
+
+): DocumentSearchResult[] {
+
+    if (!query.trim()) {
+
+        return [];
+
+    }
+
+    return documentData.flatMap(document => {
+
+        const matches: DocumentSearchMatch[] = [];
+
+        if (
+
+            contains(
+
+                document.country,
+
+                query
+
+            )
+
+        ) {
+
+            pushMatch(
+
+                matches,
+
+                "country",
+
+                `Pays • ${document.country}`
+
+            );
+
+        }
+
+        if (
+
+            contains(
+
+                document.authority,
+
+                query
+
+            )
+
+        ) {
+
+            pushMatch(
+
+                matches,
+
+                "authority",
+
+                `Autorité • ${document.authority}`
+
+            );
+
+        }
+
+        document.subjects.forEach(subject => {
+
+            const display =
+
+                getPersonDisplay(
+
+                    subject.person,
+
+                    subject.name
+
+                );
+
+            if (
+
+                contains(
+
+                    display.displayName,
+
+                    query
+
+                )
+
+            ) {
+
+                pushMatch(
+
+                    matches,
+
+                    "subject",
+
+                    `Sujet • ${display.displayName}`,
+
+                    subject.person,
+
+                    "subject"
+
+                );
+
+            }
+
+        });
+
+        document.referencedPeople.forEach(reference => {
+
+            const display =
+
+                getPersonDisplay(
+
+                    reference.person,
+
+                    reference.name
+
+                );
+
+            if (
+
+                contains(
+
+                    display.displayName,
+
+                    query
+
+                )
+
+            ) {
+
+                pushMatch(
+
+                    matches,
+
+                    "reference",
+
+                    `${translateRole(reference.role)} • ${display.displayName}`,
+
+                    reference.person,
+
+                    reference.role
+
+                );
+
+            }
+
+        });
+
+        matches.sort(
+
+            (a, b) =>
+
+                getMatchPriority(a) -
+
+                getMatchPriority(b)
+
+        );
+
+        return matches.length > 0
+
+            ? [{
+
+                document,
+
+                matches,
+
+            }]
+
+            : [];
+
+    });
+
+}
+
+export function getFatherRelationship(
+    personId: string
+): ParentChildRelationship | undefined {
+
+    return relationshipData.find(
+        (
+            relationship
+        ): relationship is ParentChildRelationship =>
+
+            relationship.type === "parent-child" &&
+            relationship.child === personId &&
+            relationship.parentRole === "father"
+
+    );
+
+}
+
+export function getMotherRelationship(
+    personId: string
+): ParentChildRelationship | undefined {
+
+    return relationshipData.find(
+        (
+            relationship
+        ): relationship is ParentChildRelationship =>
+
+            relationship.type === "parent-child" &&
+            relationship.child === personId &&
+            relationship.parentRole === "mother"
+
+    );
+
+}
+
+export function getChildrenRelationships(
+    personId: string
+): ParentChildRelationship[] {
+
+    return relationshipData.filter(
+
+        (
+            relationship
+        ): relationship is ParentChildRelationship =>
+
+            relationship.type === "parent-child" &&
+            relationship.parent === personId
+
+    );
+
+}
+
+export function getMarriageRelationships(
+    personId: string
+): MarriageRelationship[] {
+
+    return relationshipData.filter(
+
+        (
+            relationship
+        ): relationship is MarriageRelationship =>
+
+            relationship.type === "marriage" &&
+            (
+                relationship.husband === personId ||
+                relationship.wife === personId
+            )
 
     );
 

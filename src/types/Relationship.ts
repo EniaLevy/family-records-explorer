@@ -1,32 +1,54 @@
-export interface ParentChildRelationship {
+export interface BaseRelationship {
+
+    type: string;
+
+}
+
+export interface ParentChildRelationship
+    extends BaseRelationship {
 
     type: "parent-child";
 
     parent: string;
 
-    child: string;
+    /**
+     * Optional fallback name used when the parent
+     * does not exist in people.json.
+     */
+    parentName?: string;
 
     parentRole: "father" | "mother";
 
-    evidenceDocuments?: string[];
+    child: string;
+
+    /**
+     * Optional fallback name used when the child
+     * does not exist in people.json.
+     */
+    childName?: string;
 
 }
 
-export interface MarriageRelationship {
+export interface MarriageRelationship
+    extends BaseRelationship {
 
     type: "marriage";
 
     husband: string;
 
+    /**
+     * Optional fallback name used when the husband
+     * does not exist in people.json.
+     */
+    husbandName?: string;
+
     wife: string;
 
-    marriageDate?: string | null;
-
-    marriagePlace?: string | null;
-
-    divorceDate?: string | null;
-
-    evidenceDocuments?: string[];
+    /**
+     * Optional fallback name used when the wife
+     * does not exist in people.json.
+     */
+    wifeName?: string;
 
 }
 

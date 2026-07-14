@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+migrator.py
+populate_people.py
+
+documents_og.json
+people_og.json
+relationships_og.json

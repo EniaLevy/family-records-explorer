@@ -5,7 +5,7 @@ import {
     FaUsers,
 } from "react-icons/fa";
 
-import { getPerson } from "../../services/archive";
+import { getPersonDisplay } from "../../services/personDisplay";
 import { formatFrenchDate } from "../../utils/date";
 
 import type { ArchiveDocument } from "../../types/Document";
@@ -22,9 +22,17 @@ export default function DocumentListItem({
 
 }: DocumentListItemProps) {
 
-    const subjects = document.subjects
-        .map(getPerson)
-        .filter(Boolean);
+    const subjects = document.subjects.map(subject =>
+
+        getPersonDisplay(
+
+            subject.person,
+
+            subject.name
+
+        )
+
+    );
 
     const referencedCount =
         document.referencedPeople?.length ?? 0;
@@ -78,7 +86,7 @@ export default function DocumentListItem({
 
                             <span>
 
-                                {subjects.length} sujet{subjects.length > 1 ? "s" : ""}
+                                {document.subjects.length} sujet{document.subjects.length > 1 ? "s" : ""}
 
                             </span>
 
@@ -94,14 +102,14 @@ export default function DocumentListItem({
 
                     <div className="mt-4 flex flex-wrap gap-2">
 
-                        {subjects.map((person) => (
+                        {subjects.map((subject, index) => (
 
                             <span
-                                key={person!.id}
+                                key={`${document.id}-subject-${index}`}
                                 className="rounded-full bg-slate-100 px-3 py-1 text-sm"
                             >
 
-                                {person!.fullName}
+                                {subject.displayName}
 
                             </span>
 

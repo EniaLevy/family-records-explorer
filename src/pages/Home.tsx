@@ -23,15 +23,15 @@ export default function Home() {
                 ]}
             />
 
-            <section className="mb-14">
+            <section className="mb-10 md:mb-14">
 
-                <h1 className="mb-4 text-6xl font-bold">
+                <h1 className="mb-4 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
 
                     Archive familiale française
 
                 </h1>
 
-                <p className="max-w-4xl text-xl leading-relaxed text-gray-600">
+                <p className="max-w-4xl text-lg md:text-xl leading-relaxed text-gray-600">
 
                     Cette archive numérique rassemble les actes d'état civil
                     et les documents officiels concernant les familles
@@ -41,7 +41,7 @@ export default function Home() {
 
             </section>
 
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-5 md:gap-8 md:grid-cols-2">
 
                 <NavigationCard
                     icon={<FaUsers />}

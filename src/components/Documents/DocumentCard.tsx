@@ -11,8 +11,8 @@ import {
 import type { ArchiveDocument } from "../../types/Document";
 
 import {
-    getPerson,
-} from "../../services/archive";
+    getPersonDisplay,
+} from "../../services/personDisplay";
 
 import {
     formatFrenchDate,
@@ -30,20 +30,28 @@ export default function DocumentCard({
 
 }: DocumentCardProps) {
 
-    const subjects = document.subjects
-        .map(getPerson)
-        .filter(Boolean);
+    const subjects = document.subjects.map(subject =>
+
+        getPersonDisplay(
+
+            subject.person,
+
+            subject.name
+
+        )
+
+    );
 
     return (
 
         <Link
             to={`/documents/${document.id}`}
-            className="group block rounded-2xl border border-gray-200 bg-white p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-blue-500 hover:shadow-xl"
+            className="group block rounded-2xl border border-gray-200 bg-white p-5 md:p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-blue-500 hover:shadow-xl"
         >
 
-            <div className="mb-6 flex items-start gap-4">
+            <div className="mb-4 md:mb-6 flex items-start gap-3 md:gap-4">
 
-                <div className="rounded-xl bg-blue-100 p-4 text-2xl text-blue-600">
+                <div className="rounded-xl bg-blue-100 p-3 md:p-4 text-xl md:text-2xl text-blue-600">
 
                     <FaFileAlt />
 
@@ -51,7 +59,7 @@ export default function DocumentCard({
 
                 <div>
 
-                    <h2 className="text-2xl font-semibold group-hover:text-blue-600">
+                    <h2 className="break-words text-xl md:text-2xl font-semibold group-hover:text-blue-600">
 
                         {document.title}
 
@@ -61,7 +69,7 @@ export default function DocumentCard({
 
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-4 md:space-y-5">
 
                 <div>
 
@@ -73,14 +81,14 @@ export default function DocumentCard({
 
                     <div className="flex flex-wrap gap-2">
 
-                        {subjects.map((person) => (
+                        {subjects.map((subject, index) => (
 
                             <span
-                                key={person!.id}
+                                key={`${document.id}-subject-${index}`}
                                 className="rounded-full bg-slate-100 px-3 py-1 text-sm"
                             >
 
-                                {person!.fullName}
+                                {subject.displayName}
 
                             </span>
 
@@ -164,7 +172,7 @@ export default function DocumentCard({
 
                         <span>
 
-                            {document.referencedPeople!.length} personne{document.referencedPeople!.length > 1 ? "s" : ""} mentionnée{document.referencedPeople!.length > 1 ? "s" : ""}
+                            {document.referencedPeople.length} personne{document.referencedPeople.length > 1 ? "s" : ""} mentionnée{document.referencedPeople.length > 1 ? "s" : ""}
 
                         </span>
 

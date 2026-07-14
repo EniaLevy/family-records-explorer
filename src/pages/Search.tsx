@@ -1,13 +1,81 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 
 import Breadcrumbs from "../components/Navigation/Breadcrumbs";
 import PersonLink from "../components/Common/PersonLink";
-import DocumentLink from "../components/Common/DocumentLink";
 
 import {
     searchPeople,
-    searchDocuments,
+    searchDocumentsDetailed,
 } from "../services/archive";
+
+import {
+    getDocumentTypeLabel,
+} from "../utils/documentType";
+
+function highlightMatch(
+    text: string,
+    query: string
+) {
+
+    if (!query.trim()) {
+
+        return text;
+
+    }
+
+    const escaped = query.replace(
+        /[.*+?^${}()|[\]\\]/g,
+        "\\$&"
+    );
+
+    const parts = text.split(
+        new RegExp(
+            `(${escaped})`,
+            "gi"
+        )
+    );
+
+    return (
+
+        <>
+
+            {parts.map(
+
+                (part, index) =>
+
+                    part.toLowerCase() === query.toLowerCase()
+
+                        ? (
+
+                            <mark
+                                key={index}
+                                className="rounded bg-yellow-200 px-0.5"
+                            >
+
+                                {part}
+
+                            </mark>
+
+                        )
+
+                        : (
+
+                            <span key={index}>
+
+                                {part}
+
+                            </span>
+
+                        )
+
+            )}
+
+        </>
+
+    );
+
+}
 
 export default function Search() {
 
@@ -19,7 +87,7 @@ export default function Search() {
     );
 
     const documents = useMemo(
-        () => searchDocuments(query),
+        () => searchDocumentsDetailed(query),
         [query]
     );
 
@@ -87,6 +155,13 @@ export default function Search() {
 
                         </h2>
 
+                        <p className="mb-5 text-gray-600">
+
+                            Les personnes de référence apparaissent également dans les résultats,
+                            même lorsqu'elles ne disposent pas d'un dossier individuel.
+
+                        </p>
+
                         <div className="space-y-3">
 
                             {people.length === 0 && (
@@ -99,7 +174,7 @@ export default function Search() {
 
                             )}
 
-                            {people.map((person) => (
+                            {people.map(person => (
 
                                 <PersonLink
                                     key={person.id}
@@ -120,7 +195,7 @@ export default function Search() {
 
                         </h2>
 
-                        <div className="space-y-3">
+                        <div className="space-y-5">
 
                             {documents.length === 0 && (
 
@@ -132,12 +207,62 @@ export default function Search() {
 
                             )}
 
-                            {documents.map((document) => (
+                            {documents.map(result => (
 
-                                <DocumentLink
-                                    key={document.id}
-                                    document={document}
-                                />
+                                <Link
+                                    key={result.document.id}
+                                    to={`/documents/${result.document.id}`}
+                                    className="group block rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
+                                >
+
+                                    <h3 className="text-xl font-semibold transition group-hover:text-blue-600">
+
+                                        {highlightMatch(
+                                            result.document.title,
+                                            query
+                                        )}
+
+                                    </h3>
+
+                                    <div className="mt-1 text-sm text-slate-500">
+
+                                        {getDocumentTypeLabel(
+                                            result.document.documentType
+                                        )}
+
+                                    </div>
+
+                                    <div className="mt-5">
+
+                                        <div className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">
+
+                                            Éléments correspondants
+
+                                        </div>
+
+                                        <div className="space-y-2">
+
+                                            {result.matches.map((match, index) => (
+
+                                                <div
+                                                    key={index}
+                                                    className="rounded-lg bg-slate-50 px-3 py-2 text-sm text-slate-700"
+                                                >
+
+                                                    {highlightMatch(
+                                                        match.label,
+                                                        query
+                                                    )}
+
+                                                </div>
+
+                                            ))}
+
+                                        </div>
+
+                                    </div>
+
+                                </Link>
 
                             ))}
 

@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 
 import type { ArchiveDocument } from "../../types/Document";
 
-import { getPerson } from "../../services/archive";
+import {
+    getPersonDisplay,
+} from "../../services/personDisplay";
 
 interface DocumentLinkProps {
 
@@ -20,13 +22,15 @@ export default function DocumentLink({
 
         (document.referencedPeople ?? [])
 
-            .map((reference) => getPerson(reference.person))
+            .map(reference =>
 
-            .filter(
+                getPersonDisplay(
 
-                (person): person is NonNullable<typeof person> =>
+                    reference.person,
 
-                    person !== undefined
+                    reference.name
+
+                )
 
             );
 
@@ -49,7 +53,7 @@ export default function DocumentLink({
 
                     {referencedPeople
 
-                        .map((person) => person.fullName)
+                        .map(person => person.displayName)
 
                         .join(", ")}
 
