@@ -44,7 +44,7 @@ export default function PersonReference({
 
             <div className="flex flex-wrap items-center justify-between gap-3">
 
-                <span className="break-words">
+                <span className="wrap-break-word">
 
                     {person.displayName}
 

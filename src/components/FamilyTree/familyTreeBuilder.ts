@@ -7,22 +7,17 @@ import type {
 
 import {
     getPeople,
+    getRelationships,
 } from "../../services/archive";
 
 import type {
     Person,
 } from "../../types/Person";
 
-import relationships from "../../data/relationships.json";
-
 import type {
-    Relationship,
     ParentChildRelationship,
     MarriageRelationship,
 } from "../../types/Relationship";
-
-const relationshipData =
-    relationships as unknown as Relationship[];
 
 const NODE_WIDTH = 230;
 const NODE_HEIGHT = 145;
@@ -66,29 +61,101 @@ export function buildFamilyTree() {
 
     });
 
-    const people = getPeople();
+    const relationshipData =
+        getRelationships();
 
-    people.forEach(person => {
+    const connectedIds =
+        new Set<string>();
 
-        graph.setNode(
+    relationshipData.forEach(
 
-            person.id,
+        relationship => {
 
-            {
+            if (
 
-                width: NODE_WIDTH,
+                relationship.type === "marriage"
 
-                height: NODE_HEIGHT,
+            ) {
+
+                connectedIds.add(
+
+                    relationship.husband
+
+                );
+
+                connectedIds.add(
+
+                    relationship.wife
+
+                );
 
             }
 
+            else {
+
+                connectedIds.add(
+
+                    relationship.parent
+
+                );
+
+                connectedIds.add(
+
+                    relationship.child
+
+                );
+
+            }
+
+        }
+
+    );
+
+    const people =
+
+        getPeople().filter(
+
+            person =>
+
+                connectedIds.has(
+
+                    person.id
+
+                )
+
         );
 
-    });
+    people.forEach(
+
+        person => {
+
+            graph.setNode(
+
+                person.id,
+
+                {
+
+                    width: NODE_WIDTH,
+
+                    height: NODE_HEIGHT,
+
+                }
+
+            );
+
+        }
+
+    );
 
     const marriageNodes: Node[] = [];
 
     const edges: Edge[] = [];
+
+    const spouseLookup =
+        new Map<string, string>();
+
+    const marriageLookup =
+        new Map<string, string>();
 
     relationshipData
 
@@ -104,159 +171,246 @@ export function buildFamilyTree() {
 
         )
 
-        .forEach(relationship => {
+        .forEach(
 
-            const marriageId =
+            relationship => {
 
-                `marriage_${relationship.husband}_${relationship.wife}`;
+                const marriageId =
 
-            graph.setNode(
+                    `marriage_${relationship.husband}_${relationship.wife}`;
 
-                marriageId,
+                marriageLookup.set(
 
-                {
+                    relationship.husband,
 
-                    width: MARRIAGE_WIDTH,
+                    marriageId
 
-                    height: MARRIAGE_HEIGHT,
+                );
 
-                }
+                marriageLookup.set(
 
-            );
+                    relationship.wife,
 
-            marriageNodes.push({
+                    marriageId
 
-                id: marriageId,
+                );
 
-                type: "marriage",
+                spouseLookup.set(
 
-                position: {
+                    relationship.husband,
 
-                    x: 0,
+                    relationship.wife
 
-                    y: 0,
+                );
 
-                },
+                spouseLookup.set(
 
-                draggable: false,
+                    relationship.wife,
 
-                selectable: false,
+                    relationship.husband
 
-                connectable: false,
+                );
 
-                data: {},
-
-            });
-
-            graph.setEdge(
-
-                relationship.husband,
-
-                marriageId
-
-            );
-
-            graph.setEdge(
-
-                relationship.wife,
-
-                marriageId
-
-            );
-
-            edges.push(
-
-                {
-
-                    id: `${relationship.husband}_${marriageId}`,
-
-                    source: relationship.husband,
-
-                    target: marriageId,
-
-                    type: "smoothstep",
-
-                    animated: false,
-
-                    style: EDGE_STYLE,
-
-                    pathOptions: EDGE_OPTIONS,
-
-                },
-
-                {
-
-                    id: `${relationship.wife}_${marriageId}`,
-
-                    source: relationship.wife,
-
-                    target: marriageId,
-
-                    type: "smoothstep",
-
-                    animated: false,
-
-                    style: EDGE_STYLE,
-
-                    pathOptions: EDGE_OPTIONS,
-
-                }
-
-            );
-
-            const children = [
-
-                ...new Set(
-
-                    relationshipData
-
-                        .filter(
-
-                            (
-
-                                relation
-
-                            ): relation is ParentChildRelationship =>
-
-                                relation.type === "parent-child"
-
-                                && (
-
-                                    relation.parent === relationship.husband ||
-
-                                    relation.parent === relationship.wife
-
-                                )
-
-                        )
-
-                        .map(
-
-                            relation => relation.child
-
-                        )
-
-                )
-
-            ];
-
-            children.forEach(child => {
-
-                graph.setEdge(
+                graph.setNode(
 
                     marriageId,
 
-                    child
+                    {
+
+                        width: MARRIAGE_WIDTH,
+
+                        height: MARRIAGE_HEIGHT,
+
+                    }
+
+                );
+
+                marriageNodes.push({
+
+                    id: marriageId,
+
+                    type: "marriage",
+
+                    position: {
+
+                        x: 0,
+
+                        y: 0,
+
+                    },
+
+                    draggable: false,
+
+                    selectable: false,
+
+                    connectable: false,
+
+                    data: {},
+
+                });
+
+                graph.setEdge(
+
+                    relationship.husband,
+
+                    marriageId
+
+                );
+
+                graph.setEdge(
+
+                    relationship.wife,
+
+                    marriageId
+
+                );
+
+                edges.push(
+
+                    {
+
+                        id:
+
+                            `${relationship.husband}_${marriageId}`,
+
+                        source:
+
+                            relationship.husband,
+
+                        target:
+
+                            marriageId,
+
+                        type:
+
+                            "smoothstep",
+
+                        animated:
+
+                            false,
+
+                        style:
+
+                            EDGE_STYLE,
+
+                        pathOptions:
+
+                            EDGE_OPTIONS,
+
+                    },
+
+                    {
+
+                        id:
+
+                            `${relationship.wife}_${marriageId}`,
+
+                        source:
+
+                            relationship.wife,
+
+                        target:
+
+                            marriageId,
+
+                        type:
+
+                            "smoothstep",
+
+                        animated:
+
+                            false,
+
+                        style:
+
+                            EDGE_STYLE,
+
+                        pathOptions:
+
+                            EDGE_OPTIONS,
+
+                    }
+
+                );
+
+            }
+
+        );
+
+    const processedChildren =
+        new Set<string>();
+
+    relationshipData
+
+        .filter(
+
+            (
+
+                relationship
+
+            ): relationship is ParentChildRelationship =>
+
+                relationship.type === "parent-child"
+
+        )
+
+        .forEach(
+
+            relationship => {
+
+                const marriageId =
+
+                    marriageLookup.get(
+
+                        relationship.parent
+
+                    );
+
+                const edgeSource =
+
+                    marriageId ??
+
+                    relationship.parent;
+
+                const edgeKey =
+
+                    `${edgeSource}->${relationship.child}`;
+
+                if (
+
+                    processedChildren.has(
+
+                        edgeKey
+
+                    )
+
+                ) {
+
+                    return;
+
+                }
+
+                processedChildren.add(
+
+                    edgeKey
+
+                );
+
+                graph.setEdge(
+
+                    edgeSource,
+
+                    relationship.child
 
                 );
 
                 edges.push({
 
-                    id: `${marriageId}_${child}`,
+                    id: edgeKey,
 
-                    source: marriageId,
+                    source: edgeSource,
 
-                    target: child,
+                    target: relationship.child,
 
                     type: "smoothstep",
 
@@ -268,81 +422,97 @@ export function buildFamilyTree() {
 
                 });
 
-            });
+            }
 
-        });
+        );
 
     dagre.layout(graph);
 
-    const personNodes: Node<FamilyNodeData>[] =
+        const personNodes: Node<FamilyNodeData>[] =
 
-        people.map(person => {
+        people.map(
+
+            person => {
+
+                const position =
+
+                    graph.node(
+
+                        person.id
+
+                    );
+
+                return {
+
+                    id: person.id,
+
+                    type: "family",
+
+                    draggable: false,
+
+                    selectable: false,
+
+                    connectable: false,
+
+                    position: {
+
+                        x:
+
+                            position.x -
+
+                            NODE_WIDTH / 2,
+
+                        y:
+
+                            position.y -
+
+                            NODE_HEIGHT / 2,
+
+                    },
+
+                    data: {
+
+                        person,
+
+                    },
+
+                };
+
+            }
+
+        );
+
+    marriageNodes.forEach(
+
+        node => {
 
             const position =
 
-                graph.node(person.id);
+                graph.node(
 
-            return {
+                    node.id
 
-                id: person.id,
+                );
 
-                type: "family",
+            node.position = {
 
-                draggable: false,
+                x:
 
-                selectable: false,
+                    position.x -
 
-                connectable: false,
+                    MARRIAGE_WIDTH / 2,
 
-                position: {
+                y:
 
-                    x:
+                    position.y -
 
-                        position.x -
-
-                        NODE_WIDTH / 2,
-
-                    y:
-
-                        position.y -
-
-                        NODE_HEIGHT / 2,
-
-                },
-
-                data: {
-
-                    person,
-
-                },
+                    MARRIAGE_HEIGHT / 2,
 
             };
 
-        });
+        }
 
-    marriageNodes.forEach(node => {
-
-        const position =
-
-            graph.node(node.id);
-
-        node.position = {
-
-            x:
-
-                position.x -
-
-                MARRIAGE_WIDTH / 2,
-
-            y:
-
-                position.y -
-
-                MARRIAGE_HEIGHT / 2,
-
-        };
-
-    });
+    );
 
     return {
 

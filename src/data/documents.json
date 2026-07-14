@@ -74,19 +74,19 @@
             },
             {
                 "person": "david-levy",
-                "role": "grandfather"
+                "role": "paternal_grandfather"
             },
             {
                 "person": "ernestina-levy",
-                "role": "grandmother"
+                "role": "paternal_grandmother"
             },
             {
                 "person": "gaspar-rueff",
-                "role": "grandfather"
+                "role": "maternal_grandfather"
             },
             {
                 "person": "paulina-rueff",
-                "role": "grandmother"
+                "role": "maternal_grandmother"
             }
         ],
         "creationDate": "25-03-1899",
@@ -542,19 +542,19 @@
             },
             {
                 "person": "edouard-cerff",
-                "role": "father"
+                "role": "father_of_husband"
             },
             {
                 "person": "delphine-oulif",
-                "role": "mother"
+                "role": "mother_of_husband"
             },
             {
                 "person": "simon-freudenberg",
-                "role": "father_of_bride"
+                "role": "father_of_wife"
             },
             {
                 "person": "louise-bloch",
-                "role": "mother_of_bride"
+                "role": "mother_of_wife"
             }
         ],
         "creationDate": "27-09-1900",

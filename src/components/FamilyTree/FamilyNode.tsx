@@ -193,7 +193,7 @@ export default function FamilyNode({
 
             <div
 
-                className={`nodrag nopan w-60 overflow-hidden rounded-3xl border shadow-sm transition-all duration-200 ${
+                className={`nodrag nopan w-60 overflow-visible rounded-3xl border shadow-sm transition-all duration-200 ${
 
                     person.isReferenceOnly
 
@@ -247,7 +247,7 @@ export default function FamilyNode({
 
                         }
 
-                        <h2 className="text-center text-lg font-semibold leading-tight break-words">
+                        <h2 className="text-center text-lg font-semibold leading-tight wrap-break-word">
 
                             {person.fullName}
 
@@ -287,7 +287,7 @@ export default function FamilyNode({
 
                             !person.isReferenceOnly && (
 
-                                <p className="mt-2 max-w-full break-words text-center text-sm text-slate-500">
+                                <p className="mt-2 max-w-full wrap-break-word text-center text-sm text-slate-500">
 
                                     {person.nationality}
 

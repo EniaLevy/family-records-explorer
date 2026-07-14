@@ -89,7 +89,7 @@ export default function DocumentRecord() {
 
             <header className="mb-8 md:mb-10">
 
-                <h1 className="mb-2 break-words text-4xl md:text-5xl font-bold">
+                <h1 className="mb-2 wrap-break-word text-4xl md:text-5xl font-bold">
 
                     {document.title}
 
@@ -183,7 +183,7 @@ export default function DocumentRecord() {
 
                                                 rel="noopener noreferrer"
 
-                                                className="inline-flex items-center gap-2 break-words text-blue-600 transition hover:text-blue-700 hover:underline"
+                                                className="inline-flex items-center gap-2 wrap-break-word text-blue-600 transition hover:text-blue-700 hover:underline"
 
                                             >
 
@@ -195,7 +195,7 @@ export default function DocumentRecord() {
 
                                         ) : (
 
-                                            <p className="break-words">
+                                            <p className="wrap-break-word">
 
                                                 {document.source.label}
 

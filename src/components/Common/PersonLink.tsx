@@ -44,7 +44,7 @@ export default function PersonLink({
 
                     <p
 
-                        className={`font-medium break-words ${
+                        className={`font-medium wrap-break-word ${
                             person.isReferenceOnly
                                 ? "text-slate-700"
                                 : ""

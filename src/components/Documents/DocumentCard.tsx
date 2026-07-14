@@ -59,7 +59,7 @@ export default function DocumentCard({
 
                 <div>
 
-                    <h2 className="break-words text-xl md:text-2xl font-semibold group-hover:text-blue-600">
+                    <h2 className="wrap-break-word text-xl md:text-2xl font-semibold group-hover:text-blue-600">
 
                         {document.title}
 

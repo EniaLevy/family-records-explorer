@@ -1,6 +1,6 @@
 import people from "../data/people.json";
 import documents from "../data/documents.json";
-import relationships from "../data/relationships.json";
+import { buildRelationships } from "./buildRelationships";
 
 import type { Person } from "../types/Person";
 import type {
@@ -11,7 +11,6 @@ import { getPersonDisplay } from "./personDisplay";
 import { translateRole } from "../utils/documentRoles";
 
 import type {
-    Relationship,
     ParentChildRelationship,
     MarriageRelationship,
 } from "../types/Relationship";
@@ -22,7 +21,7 @@ const documentData =
     documents as unknown as ArchiveDocument[];
 
 const relationshipData =
-    relationships as unknown as Relationship[];
+    buildRelationships(documentData);
 
 function contains(
     value: string | null | undefined,
@@ -138,6 +137,12 @@ export function getDocumentCount(
 ): number {
 
     return getDocumentsForPerson(personId).length;
+
+}
+
+export function getRelationships() {
+
+    return relationshipData;
 
 }
 
